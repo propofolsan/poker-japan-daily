@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poker Japan Daily - 日本ポーカー情報メディア</title>
+
+<!-- SEO -->
+<meta name="description" content="日本国内のポーカートーナメント情報、業界ニュース、法規制の動向を毎日自動更新。JOPT、WPT Japan、AJPC等の大会スケジュール・結果をお届けします。">
+<meta name="keywords" content="ポーカー,日本,トーナメント,JOPT,WPT,AJPC,NIPPON SERIES,アミューズメントカジノ,テキサスホールデム,poker,japan">
+<meta name="author" content="Poker Japan Daily">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pokernews.site/">
+
+<!-- OGP -->
+<meta property="og:title" content="Poker Japan Daily - 日本ポーカー情報メディア">
+<meta property="og:description" content="日本国内のポーカートーナメント情報、業界ニュース、法規制の動向を毎日自動更新。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pokernews.site/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Poker Japan Daily">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Poker Japan Daily - 日本ポーカー情報メディア">
+<meta name="twitter:description" content="日本国内のポーカートーナメント情報、業界ニュース、法規制の動向を毎日自動更新。">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%99%A0</text></svg>">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Poker Japan Daily",
+  "url": "https://pokernews.site/",
+  "description": "日本国内のポーカートーナメント情報、業界ニュース、法規制の動向を毎日自動更新するメディアサイト",
+  "inLanguage": "ja",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Poker Japan Daily"
+  }
+}
+</script>
+<style>
+  :root {
+    --primary: #ffffff;
+    --accent: #0ea5e9;
+    --accent2: #06b6d4;
+    --accent-dark: #0369a1;
+    --gold: #f59e0b;
+    --green: #10b981;
+    --bg: #f0f9ff;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --header-gradient: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #10b981 100%);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Noto Sans JP', 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* Header */
+  header {
+    background: var(--header-gradient);
+    border-bottom: none;
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(14, 165, 233, 0.15);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    font-size: 2.2rem;
+  }
+  .logo h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .logo h1 span { color: #fff; }
+  .logo h1 { color: #fff; }
+  .logo-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    text-align: right;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .update-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Nav */
+  nav {
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  nav ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    list-style: none;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover, nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Main */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+  }
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+  }
+
+  /* Section */
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* News Cards */
+  .news-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .news-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12);
+  }
+  .news-card .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .tag-tournament { background: #0ea5e9; color: #fff; }
+  .tag-regulation { background: #f59e0b; color: #fff; }
+  .tag-industry { background: #8b5cf6; color: #fff; }
+  .tag-world { background: #10b981; color: #fff; }
+  .tag-result { background: #f43f5e; color: #fff; }
+  .news-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .news-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .news-card h3 a:hover { color: var(--accent-dark); }
+  .news-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .news-meta {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* Sidebar */
+  .sidebar section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .sidebar .section-title {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  /* Schedule */
+  .schedule-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-date {
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .schedule-name {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .schedule-venue {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+  }
+
+  /* Links */
+  .link-list a {
+    display: block;
+    padding: 8px 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .link-list a:last-child { border-bottom: none; }
+  .link-list a:hover { color: var(--accent-dark); }
+
+  /* Ticker */
+  .ticker {
+    background: linear-gradient(90deg, #f0f9ff, #ecfdf5, #f0f9ff);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 8px 0;
+  }
+  .ticker-inner {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    white-space: nowrap;
+    gap: 48px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .ticker-inner span { color: var(--accent-dark); font-weight: 700; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Footer */
+  footer {
+    background: #1e293b;
+    border-top: none;
+    padding: 24px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-top: 40px;
+  }
+
+  /* Featured */
+  .featured {
+    background: linear-gradient(135deg, #e0f2fe, #ecfdf5);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured::before {
+    content: 'FEATURED';
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 40px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    transform: rotate(45deg);
+    letter-spacing: 1px;
+  }
+  .featured h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .featured p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">&#9824;</div>
+      <div>
+        <h1>Poker <span>Japan</span> Daily</h1>
+        <div class="logo-sub">Japanese Poker News &amp; Tournament Media</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="update-badge">AUTO UPDATED</div>
+      <div id="update-date">最終更新: 2026年3月13日</div>
+    </div>
+  </div>
+</header>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div><span>JOPT 2026 Osaka</span> 3/18-22 堂島リバーフォーラム</div>
+    <div><span>P1 GRANDPRIX</span> 5/1-6 東京</div>
+    <div><span>JOPT Grand Final</span> 4/24-5/6 ベルサール高田馬場</div>
+    <div><span>WSOP 2026</span> 5/26 ラスベガス開幕</div>
+    <div><span>JOPT Tokyo #02</span> 7/16-20</div>
+    <div><span>JOPT Sapporo</span> 9/18-23</div>
+    <div><span>JOPT 2026 Osaka</span> 3/18-22 堂島リバーフォーラム</div>
+    <div><span>P1 GRANDPRIX</span> 5/1-6 東京</div>
+    <div><span>JOPT Grand Final</span> 4/24-5/6 ベルサール高田馬場</div>
+    <div><span>WSOP 2026</span> 5/26 ラスベガス開幕</div>
+    <div><span>JOPT Tokyo #02</span> 7/16-20</div>
+    <div><span>JOPT Sapporo</span> 9/18-23</div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <ul>
+    <li><a href="#" class="active">トップ</a></li>
+    <li><a href="#tournaments">トーナメント</a></li>
+    <li><a href="#regulation">法規制</a></li>
+    <li><a href="#industry">業界ニュース</a></li>
+    <li><a href="#world">海外</a></li>
+    <li><a href="#schedule">スケジュール</a></li>
+  </ul>
+</nav>
+
+<!-- Main -->
+<main>
+  <div class="content">
+
+    <!-- Featured -->
+    <div class="featured">
+      <span class="tag tag-regulation">法規制</span>
+      <h2>日本ポーカー事業者連盟（JPBA）が業界ガイドラインを策定 ― 風営法5号営業の適正化へ</h2>
+      <p>2026年1月31日、JPBAは風営法第5号営業店舗向けの適正な運営に向けた業界方針を正式発表。2025年12月の警視庁による都内80店舗一斉調査を受け、業界全体の健全化に向けた動きが加速している。</p>
+      <div class="news-meta">2026年1月31日 ｜ 出典: <a href="https://jpba-poker.com/" style="color:var(--accent-dark)">日本ポーカー事業者連盟</a></div>
+    </div>
+
+    <!-- Tournament News -->
+    <div id="tournaments">
+      <div class="section-title">&#9824; トーナメント情報</div>
+
+      <div class="news-card">
+        <span class="tag tag-result">結果</span>
+        <h3><a href="https://japanopenpoker.com/">JOPT 2026 Tokyo #01 Main Event ―「めっし」さんが3,241エントリーの頂点に</a></h3>
+        <p>JOPT 2026 Tokyo #01のメインイベントで「めっし」選手が優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</p>
+        <div class="news-meta">2026年1月 ｜ Japan Open Poker Tour</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-tournament">大会情報</span>
+        <h3><a href="https://japanopenpoker.com/">JOPT 2026 Osaka 大阪大会 3月18日〜22日開催</a></h3>
+        <p>堂島リバーフォーラムにて5日間開催。メインイベントに加え、多数のサイドイベントが用意されている。</p>
+        <div class="news-meta">2026年3月18日〜22日 ｜ 堂島リバーフォーラム</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-tournament">大会情報</span>
+        <h3><a href="https://light-three.com/pokerevent/">P1 GRANDPRIX 2026 ― 5月1日〜6日 東京開催決定</a></h3>
+        <p>オンライン・ライブイベント・リアル店舗を横断するポーカー大会。全国のプレイヤーとファンが集う注目のイベント。</p>
+        <div class="news-meta">2026年5月1日〜6日 ｜ 東京</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-tournament">大会情報</span>
+        <h3><a href="https://nippon-series.jp/">NIPPON SERIES GO ― 地方特化型トーナメントブランド本格始動</a></h3>
+        <p>「最も信頼され、エシカルであるポーカーブランド」を目指し、地方でのポーカー文化拡大に向けた新ブランドが始動。交流のポテンシャルに着目した活動を展開。</p>
+        <div class="news-meta">2026年 ｜ NIPPON SERIES</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-tournament">大会情報</span>
+        <h3>FUKUOKA SUPER TOURNAMENT IV ― 九州最大級、賞金総額1,200万円</h3>
+        <p>ホテル会場にグレードアップした九州最大級のポーカートーナメント。メインイベントの賞金総額は1,200万円。</p>
+        <div class="news-meta">2026年 ｜ 福岡</div>
+      </div>
+    </div>
+
+    <!-- Regulation News -->
+    <div id="regulation" style="margin-top: 32px;">
+      <div class="section-title">&#9878; 法規制・業界動向</div>
+
+      <div class="news-card">
+        <span class="tag tag-regulation">法規制</span>
+        <h3><a href="https://it-bengosi.com/blog/%E8%AD%A6%E8%A6%96%E5%BA%81%E4%B8%80%E6%96%89%E6%91%98%E7%99%BA%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BA%E3%83%A1%E3%83%B3%E3%83%88%E3%82%AB%E3%82%B8%E3%83%8E/">警視庁がアミューズメントカジノ80店舗を一斉調査 ― 48店舗で違反確認</a></h3>
+        <p>2025年12月、渋谷・六本木・歌舞伎町など都内繁華街の80店舗が対象に。6割にあたる48店舗で風営法違反が確認され、チップの景品交換や「ウェブコイン」の問題が指摘された。</p>
+        <div class="news-meta">2025年12月</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-regulation">法規制</span>
+        <h3><a href="https://jpba-poker.com/">JPBA、風営法5号営業店舗向けガイドライン策定へ</a></h3>
+        <p>日本ポーカー事業者連盟が2026年1月に業界方針を発表。適正な運営に向けた具体的なガイドラインの策定を進めている。</p>
+        <div class="news-meta">2026年1月27日</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-regulation">法規制</span>
+        <h3><a href="https://pokerjapan.jp/onlinepoker_notification/">日本ポーカー連盟、オンラインポーカー関連スポンサーシップを全面停止</a></h3>
+        <p>警視庁の指導のもと、すべてのポーカーイベントにおけるオンラインポーカー関連プロモーション活動を停止する方針を決定。</p>
+        <div class="news-meta">2024年10月〜</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-industry">業界</span>
+        <h3>国会でアミューズメントカジノの「ウェブコイン」問題が質疑</h3>
+        <p>一部店舗で獲得チップを店舗独自のデジタルポイントに変換する仕組みが問題に。ギャンブル依存症の入り口となる懸念が国会で議論された。</p>
+        <div class="news-meta">2026年</div>
+      </div>
+    </div>
+
+    <!-- World News -->
+    <div id="world" style="margin-top: 32px;">
+      <div class="section-title">&#127758; 海外ニュース</div>
+
+      <div class="news-card">
+        <span class="tag tag-world">海外</span>
+        <h3><a href="https://www.yogonet.com/ja/">WSOP 2026 ― 第57回シリーズ、100ブレスレット争奪戦 5月26日開幕</a></h3>
+        <p>ホースシュー＆パリス・ラスベガスで開催。メインイベント（$10,000 NLHE）は7月2日スタート。100個のゴールドブレスレットが授与される。</p>
+        <div class="news-meta">2026年5月26日〜 ｜ ラスベガス</div>
+      </div>
+
+      <div class="news-card">
+        <span class="tag tag-world">海外</span>
+        <h3><a href="https://thepokeroffer.com/apt-2026-festival-schedule-20th-anniversary/">APT 20周年記念 ― アジア全域で5大フェスティバル開催</a></h3>
+        <p>Asian Poker Tourが2026年に20周年を迎え、大型フェスティバルを展開。開幕戦のAPT Jeju Classicは保証賞金総額約340万ドル。</p>
+        <div class="news-meta">2026年 ｜ アジア各地</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Schedule -->
+    <section id="schedule">
+      <div class="section-title">&#128197; 直近の大会スケジュール</div>
+      <div class="schedule-item">
+        <span class="schedule-date">3/18 - 3/22</span>
+        <div class="schedule-name">JOPT 2026 Osaka</div>
+        <div class="schedule-venue">堂島リバーフォーラム</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">4/24 - 5/6</span>
+        <div class="schedule-name">JOPT 2026 Grand Final</div>
+        <div class="schedule-venue">ベルサール高田馬場</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">5/1 - 5/6</span>
+        <div class="schedule-name">P1 GRANDPRIX 2026</div>
+        <div class="schedule-venue">東京</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">5/26 -</span>
+        <div class="schedule-name">WSOP 2026</div>
+        <div class="schedule-venue">ラスベガス</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">7/16 - 7/20</span>
+        <div class="schedule-name">JOPT 2026 Tokyo #02</div>
+        <div class="schedule-venue">東京（会場TBD）</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">9/10 - 9/13</span>
+        <div class="schedule-name">TPC Season 17</div>
+        <div class="schedule-venue">大阪難波</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">9/18 - 9/23</span>
+        <div class="schedule-name">JOPT 2026 Sapporo</div>
+        <div class="schedule-venue">札幌</div>
+      </div>
+      <div class="schedule-item">
+        <span class="schedule-date">12/17 - 12/20</span>
+        <div class="schedule-name">TPC Season 18</div>
+        <div class="schedule-venue">大阪難波</div>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section>
+      <div class="section-title">&#128279; 公式リンク集</div>
+      <div class="link-list">
+        <a href="https://japanopenpoker.com/" target="_blank">JOPT 公式サイト &#8599;</a>
+        <a href="https://wptevent.jp/" target="_blank">WPT Japan 公式サイト &#8599;</a>
+        <a href="https://www.ajpc.jp/" target="_blank">AJPC 公式サイト &#8599;</a>
+        <a href="https://nippon-series.jp/" target="_blank">NIPPON SERIES &#8599;</a>
+        <a href="https://pokerfestival.jp/" target="_blank">Japan Poker Festival &#8599;</a>
+        <a href="https://jpba-poker.com/" target="_blank">日本ポーカー事業者連盟 &#8599;</a>
+        <a href="https://pokerjapan.jp/" target="_blank">日本ポーカー連盟 &#8599;</a>
+        <a href="https://topofpoker.com/" target="_blank">Top of Poker Championship &#8599;</a>
+        <a href="https://light-three.com/pokerevent/" target="_blank">LightTHREE イベントガイド &#8599;</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section>
+      <div class="section-title">&#9881; About</div>
+      <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">
+        <strong style="color:var(--text)">Poker Japan Daily</strong> は日本国内のポーカー情報を自動収集・更新するニュースメディアです。トーナメント情報、業界ニュース、法規制の動向を毎日お届けします。
+      </p>
+      <p style="font-size:0.75rem; color:var(--text-muted); margin-top:10px;">
+        ※ 本サイトの情報はWeb検索により自動収集されたものです。最新・正確な情報は各公式サイトをご確認ください。
+      </p>
+    </section>
+  </aside>
+</main>
+
+<footer>
+  <p>&copy; 2026 Poker Japan Daily ― 日本ポーカー情報自動更新メディア</p>
+  <p style="margin-top:4px;">Powered by Claude AI ｜ 毎日自動更新</p>
+</footer>
+
+</body>
+</html>
