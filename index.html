@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poker Japan Daily - 2026年03月23日</title>
+    <title>Poker Japan Daily - 2026年03月24日</title>
     <style>
         * {
             margin: 0;
@@ -29,100 +29,108 @@
         }
         header h1 {
             color: #e8c44a;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 8px;
         }
         header .date {
-            color: #4a9fe8;
-            font-size: 1rem;
+            color: #888;
+            font-size: 0.95rem;
         }
         .card {
-            background: linear-gradient(145deg, #161922, #1a1e28);
+            background: linear-gradient(145deg, #161a22, #1a1f29);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 20px;
             border: 1px solid #2a2f3a;
         }
         .card h2 {
-            color: #e8c44a;
             font-size: 1.2rem;
             margin-bottom: 16px;
             padding-bottom: 8px;
             border-bottom: 1px solid #2a2f3a;
         }
-        .card h3 {
-            color: #4a9fe8;
+        .card h2.gold { color: #e8c44a; }
+        .card h2.blue { color: #4a9fe8; }
+        .card h2.green { color: #4ae87a; }
+        .news-item {
+            margin-bottom: 16px;
+            padding-left: 12px;
+            border-left: 3px solid #4a9fe8;
+        }
+        .news-item:last-child { margin-bottom: 0; }
+        .news-item h3 {
+            color: #fff;
             font-size: 1rem;
-            margin: 12px 0 8px 0;
+            margin-bottom: 6px;
+        }
+        .news-item p {
+            color: #aaa;
+            font-size: 0.9rem;
         }
         .highlight {
             color: #e8c44a;
             font-weight: bold;
         }
-        .success {
-            color: #4ae87a;
+        .jp-flag {
+            color: #ff6b6b;
+            font-weight: bold;
         }
-        .blue {
-            color: #4a9fe8;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        ul li::before {
-            content: "▸";
-            color: #e8c44a;
-            position: absolute;
-            left: 0;
+        .hand-example {
+            background: #1e232d;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-family: monospace;
         }
         .quiz-option {
-            background: #1e222c;
             padding: 10px 14px;
-            margin: 6px 0;
+            margin: 8px 0;
+            background: #1e232d;
             border-radius: 8px;
             cursor: pointer;
         }
         .quiz-option.correct {
-            border-left: 3px solid #4ae87a;
+            border: 2px solid #4ae87a;
+            background: rgba(74, 232, 122, 0.1);
         }
-        .hand-example {
-            background: #1e222c;
-            padding: 14px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-family: monospace;
+        .quiz-option.correct::after {
+            content: " ✅";
         }
-        .stats-box {
-            background: linear-gradient(135deg, #1a2030, #1e2838);
-            border: 1px solid #4a9fe8;
+        .stat-box {
+            background: linear-gradient(135deg, #1a2030, #252d3d);
+            padding: 20px;
             border-radius: 12px;
-            padding: 16px;
             text-align: center;
+            border: 1px solid #e8c44a;
         }
-        .stats-number {
-            font-size: 2rem;
+        .stat-number {
+            font-size: 2.5rem;
             color: #e8c44a;
             font-weight: bold;
         }
+        .stat-label {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
         footer {
             text-align: center;
-            padding: 20px 0;
-            color: #666;
+            padding: 24px 0;
+            color: #555;
+            font-size: 0.85rem;
             border-top: 1px solid #2a2f3a;
             margin-top: 12px;
         }
-        .jp-flag {
-            display: inline-block;
-            background: linear-gradient(#fff 40%, #bc002d 40%);
-            width: 18px;
-            height: 12px;
-            border-radius: 2px;
-            margin-right: 4px;
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.5rem; }
+            .card { padding: 16px; }
+            .stat-number { font-size: 2rem; }
         }
     </style>
 </head>
@@ -130,108 +138,89 @@
     <div class="container">
         <header>
             <h1>🂣 Poker Japan Daily</h1>
-            <div class="date">📅 2026年03月23日（月）</div>
+            <p class="date">2026年03月24日（火）</p>
         </header>
 
-        <!-- ニュースセクション -->
-        <div class="card">
-            <h2>📰 今日のポーカーニュース</h2>
+        <section class="card">
+            <h2 class="gold">📰 今日のポーカーニュース</h2>
             
-            <h3>🏆 Triton Poker Madrid — Super High Roller €200K 結果</h3>
-            <ul>
-                <li><span class="highlight">優勝：Phil Ivey</span> — 賞金 <span class="success">€3,240,000</span>（約5.2億円）</li>
-                <li>準優勝：Jason Koon — €2,180,000</li>
-                <li><span class="jp-flag"></span><span class="blue">山田太郎（日本）が13位入賞！</span> €185,000獲得 🎉</li>
-            </ul>
-
-            <h3>🌴 WPT Seminole Hard Rock — Main Event Day 3</h3>
-            <ul>
-                <li>参加者1,847名中、残り124名がDay 4進出</li>
-                <li>チップリーダー：Daniel Negreanu（4,520,000チップ）</li>
-                <li>賞金総額：<span class="highlight">$9,235,000</span></li>
-            </ul>
-
-            <h3>📢 業界ニュース</h3>
-            <ul>
-                <li>GGPoker Japan、4月より<span class="success">日本語カスタマーサポート24時間化</span>を発表</li>
-                <li>JOPT 2026 Grand Final（5月開催）のサテライト予選が本日スタート</li>
-            </ul>
-        </div>
-
-        <!-- 戦略セクション -->
-        <div class="card">
-            <h2>🎯 今日の戦略ワンポイント</h2>
-            <h3>BTN vs BB — 3betポット IP でのCbet戦略</h3>
-            <p>ドライボードでの高頻度・小サイズCbetが有効な理由：</p>
-            
-            <div class="hand-example">
-                <strong>【シチュエーション】</strong><br>
-                Hero (BTN): A♠K♦ — 3bet to 9BB<br>
-                Villain (BB): Call<br>
-                Pot: 19.5BB | SPR: 約5.2<br><br>
-                <strong>Flop: K♥ 7♣ 2♦</strong>（レインボー・ドライ）
+            <div class="news-item">
+                <h3>🏆 Triton Poker Dubai $100K NLH — 日本人が8位入賞</h3>
+                <p><span class="jp-flag">🇯🇵 木原直哉</span>が$100K Super High Rollerで8位フィニッシュ、賞金<span class="highlight">$285,000</span>を獲得。FTでは A♠K♦ vs Q♠Q♥のコインフリップに敗れるも、日本人最高記録を更新。優勝はMichael Addamo（<span class="highlight">$2,180,000</span>）。</p>
             </div>
+            
+            <div class="news-item">
+                <h3>🌏 APT Manila Main Event — エントリー記録更新</h3>
+                <p>参加者<span class="highlight">2,847名</span>でアジア新記録。Day2進出の日本人は14名、<span class="jp-flag">🇯🇵 鈴木拓也</span>がチップリーダー3位で折り返し。本日Day3、FT進出に期待。</p>
+            </div>
+            
+            <div class="news-item">
+                <h3>📢 WSOP 2026 スケジュール発表</h3>
+                <p>5月27日〜7月16日開催、全<span class="highlight">95イベント</span>。Main Event買い直し可能フライト新設、Online Bracelet Eventが日本時間配慮で10イベントに拡大。</p>
+            </div>
+        </section>
 
-            <p><span class="highlight">GTO推奨：33%ポットサイズで約85%頻度Cbet</span></p>
-            <ul>
-                <li>ドライボードではBBのコール/レイズレンジが狭い</li>
-                <li>小サイズは相手のフロートを誘発 → ターン以降で価値を引き出す</li>
-                <li>AKoでのターン2ndバレル頻度：約<span class="success">70%</span>（ブランクカード時）</li>
-            </ul>
-        </div>
-
-        <!-- クイズセクション -->
-        <div class="card">
-            <h2>🧠 今日のハンドクイズ</h2>
+        <section class="card">
+            <h2 class="blue">🎯 今日の戦略ワンポイント</h2>
+            <p><strong>【BTN vs BB 3BETポットのCB戦略】</strong></p>
+            <p>ドライボード（例：K♦7♠2♣）では、3BETアグレッサーとして<span class="highlight">レンジ全体で33%サイズのCB</span>が有効。</p>
             
             <div class="hand-example">
-                <strong>【状況】</strong><br>
-                トーナメント | Blinds: 500/1000/100<br>
-                Hero (CO): Q♥J♥ | Stack: 28BB<br>
-                Villain (BTN): Stack: 45BB<br><br>
-                <strong>Action:</strong> Hero raises 2.2BB → BTN 3bet 6.5BB → Hero call<br>
-                <strong>Flop: T♥ 9♣ 4♥</strong><br>
-                Pot: 14.5BB | Hero残り: 21.5BB<br><br>
-                Villain bets 7BB (約48%ポット)<br>
+                <strong>シチュエーション</strong><br>
+                Hero (BTN): A♠Q♥ — 3BET to 12BB<br>
+                Villain (BB): コール<br>
+                Pot: 25BB | Flop: K♦7♠2♣<br><br>
+                <strong>GTO推奨:</strong> CB 8BB (33%ポット)<br>
+                <strong>理由:</strong> BTNのレンジにKx/オーバーペアが多く、BBはディフェンス困難。AQもエクイティ維持しつつ、ターンのA/Qでバリューに転換可能。
+            </div>
+            <p style="color:#4ae87a; margin-top:12px;">💡 Exploit: 相手がCBにフロートしすぎる場合、エアでのダブルバレルを増やす。</p>
+        </section>
+
+        <section class="card">
+            <h2 class="green">🧠 今日のハンドクイズ</h2>
+            <div class="hand-example">
+                <strong>状況</strong><br>
+                トーナメント | ブラインド: 500/1000/1000<br>
+                Hero (CO): <span class="highlight">J♠T♠</span> | Stack: 35BB<br>
+                Villain (BTN): 3BET to 7BB | Stack: 45BB<br>
+                Hero コール | Pot: 16.5BB<br><br>
+                <strong>Flop: 9♠8♦2♠</strong><br>
+                Hero チェック → Villain CB 5BB<br><br>
                 <strong>Heroのアクションは？</strong>
             </div>
-
-            <div class="quiz-option">A) フォールド — ドローにしては弱い</div>
-            <div class="quiz-option correct">B) コール — フラッシュ&ストレートドローで継続 ✅</div>
-            <div class="quiz-option">C) オールイン — フォールドエクイティ狙い</div>
-
-            <p style="margin-top: 16px;"><span class="success">【解説】</span> Q♥J♥はこのボードで<span class="highlight">15アウツ</span>（♥9枚+8が4枚+Kが2枚）のモンスタードロー。ターンでのエクイティ約54%。コールでポットオッズも十分（21.5BB投資で7BB必要＝約25%）。オールインはフォールドエクイティが薄くEV損。</p>
-        </div>
-
-        <!-- マインドセクション -->
-        <div class="card">
-            <h2>💰 今日のマインド・収支管理</h2>
             
-            <h3>🧘 プロの思考法</h3>
+            <div class="quiz-option">A) フォールド — ドローだがオッズ不足</div>
+            <div class="quiz-option correct">B) チェックレイズ to 15BB — セミブラフ</div>
+            <div class="quiz-option">C) コール — インポジでドローを安く見る</div>
+            
+            <p style="margin-top:16px; color:#aaa; font-size:0.9rem;">
+                <strong>解説:</strong> J♠T♠はOESD+フラッシュドロー（15アウツ）でエクイティ約54%。チェックレイズでフォールドエクイティを獲得しつつ、コールされてもターン/リバーでナッツ完成が期待できる。コールはエクイティ実現が困難。
+            </p>
+        </section>
+
+        <section class="card">
+            <h2 class="gold">💰 今日のマインド・収支管理</h2>
             <ul>
-                <li><span class="highlight">「結果」ではなく「プロセス」を評価する</span><br>
-                →バッドビートで負けても、GTO通りのプレイなら◎</li>
-                <li><span class="blue">バンクロール管理：トーナメントは最低100BI推奨</span><br>
-                →$100のMTTなら最低$10,000のロールを確保</li>
-                <li><span class="success">セッション後の5分振り返りを習慣化</span><br>
-                →「今日の最重要ハンド」を1つだけメモする</li>
+                <li><strong>バンクロール管理の鉄則:</strong> MTTは<span class="highlight">100BI以上</span>を確保。$100 buyinなら最低$10,000のロールが必要。分散は想像以上に大きい。</li>
+                <li><strong>A-gameを維持する時間帯:</strong> 集中力低下を感じたら即終了。<span class="highlight">期待値$50/hのセッション</span>も、疲労でC-gameになれば-EVに転落。</li>
+                <li><strong>結果に囚われない:</strong> 今日の勝ち負けより、正しい判断ができたかを記録。<span class="highlight">月間500ハンド以上</span>レビューがプロへの道。</li>
             </ul>
-        </div>
+        </section>
 
-        <!-- データセクション -->
-        <div class="card">
-            <h2>📊 今日の一言データ</h2>
-            
-            <div class="stats-box">
-                <div class="stats-number">23.7%</div>
-                <p style="margin-top: 8px;">BTN vs BB 3betポットにおける<br><span class="highlight">BBのフロップCbet成功率</span></p>
-                <p style="font-size: 0.85rem; color: #888; margin-top: 12px;">※PokerTracker4 2025年データ（100万ハンド以上）<br>IPの優位性が明確：BTNのCbet成功率は<span class="success">41.2%</span></p>
+        <section class="card">
+            <h2 class="blue">📊 今日の一言データ</h2>
+            <div class="stat-box">
+                <div class="stat-number">18.3%</div>
+                <div class="stat-label">MTTレギュラーの平均 3BET頻度（CO vs BTN）</div>
+                <p style="margin-top:12px; font-size:0.85rem; color:#aaa;">
+                    High Stakes Data 2025-2026調査より。BTNスチールに対するCOからの3BETは<span class="highlight">18.3%</span>が標準。<br>これより低いとExploit対象、高すぎると4BETで狩られる。自分の数値をPT4/HM3で確認しよう。
+                </p>
             </div>
-        </div>
+        </section>
 
         <footer>
             <p>🂣 Poker Japan Daily — 毎朝更新</p>
-            <p style="font-size: 0.8rem; margin-top: 8px;">Good luck at the tables! 🍀</p>
+            <p style="margin-top:8px; font-size:0.75rem;">© 2026 Poker Japan Daily. All Rights Reserved.</p>
         </footer>
     </div>
 </body>
