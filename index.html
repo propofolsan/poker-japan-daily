@@ -50,23 +50,23 @@
 </script>
 <style>
   :root {
-    --bg: #0b0f1a;
-    --bg-card: #141926;
-    --bg-card-hover: #1a2036;
-    --surface: #1e2640;
-    --border: rgba(255,255,255,0.06);
-    --text: #e8eaf0;
-    --text-muted: #8892a8;
-    --accent: #6366f1;
-    --accent-light: #818cf8;
-    --accent-glow: rgba(99,102,241,0.25);
-    --green: #22c55e;
-    --gold: #fbbf24;
-    --red: #ef4444;
-    --cyan: #06b6d4;
-    --purple: #a855f7;
-    --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-    --gradient-accent: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+    --bg: #f5f6f8;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f2f7;
+    --surface: #e9ecf2;
+    --border: rgba(0,0,0,0.08);
+    --text: #1a1a2e;
+    --text-muted: #5a6278;
+    --accent: #4f46e5;
+    --accent-light: #4f46e5;
+    --accent-glow: rgba(79,70,229,0.15);
+    --green: #16a34a;
+    --gold: #d97706;
+    --red: #dc2626;
+    --cyan: #0891b2;
+    --purple: #9333ea;
+    --gradient-hero: linear-gradient(135deg, #1e293b 0%, #312e81 50%, #1e293b 100%);
+    --gradient-accent: linear-gradient(135deg, #4f46e5, #7c3aed, #0891b2);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -174,7 +174,7 @@
 
   /* Ticker */
   .ticker {
-    background: rgba(99,102,241,0.06);
+    background: rgba(79,70,229,0.04);
     border-bottom: 1px solid var(--border);
     overflow: hidden;
     padding: 10px 0;
@@ -195,13 +195,14 @@
 
   /* Nav */
   nav {
-    background: rgba(11,15,26,0.85);
+    background: rgba(255,255,255,0.92);
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   nav ul {
     max-width: 1280px;
@@ -266,11 +267,12 @@
     padding: 22px 26px;
     margin-bottom: 14px;
     transition: all 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   }
   .news-card:hover {
     background: var(--bg-card-hover);
-    border-color: rgba(99,102,241,0.3);
-    box-shadow: 0 4px 24px rgba(99,102,241,0.08);
+    border-color: rgba(79,70,229,0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     transform: translateY(-1px);
   }
   .news-card .tag {
@@ -283,12 +285,12 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-  .tag-tournament { background: rgba(99,102,241,0.15); color: var(--accent-light); border: 1px solid rgba(99,102,241,0.25); }
-  .tag-regulation { background: rgba(251,191,36,0.12); color: var(--gold); border: 1px solid rgba(251,191,36,0.2); }
-  .tag-industry { background: rgba(168,85,247,0.12); color: var(--purple); border: 1px solid rgba(168,85,247,0.2); }
-  .tag-world { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.2); }
-  .tag-result { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
-  .tag-player { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+  .tag-tournament { background: rgba(79,70,229,0.1); color: var(--accent); border: 1px solid rgba(79,70,229,0.2); }
+  .tag-regulation { background: rgba(217,119,6,0.1); color: var(--gold); border: 1px solid rgba(217,119,6,0.2); }
+  .tag-industry { background: rgba(147,51,234,0.1); color: var(--purple); border: 1px solid rgba(147,51,234,0.2); }
+  .tag-world { background: rgba(8,145,178,0.1); color: var(--cyan); border: 1px solid rgba(8,145,178,0.2); }
+  .tag-result { background: rgba(220,38,38,0.1); color: var(--red); border: 1px solid rgba(220,38,38,0.2); }
+  .tag-player { background: rgba(22,163,74,0.1); color: var(--green); border: 1px solid rgba(22,163,74,0.2); }
   .news-card h3 {
     font-size: 1rem;
     margin-bottom: 8px;
@@ -317,12 +319,13 @@
   /* Featured */
   .featured {
     background: var(--bg-card);
-    border: 1px solid rgba(99,102,241,0.2);
+    border: 1px solid rgba(79,70,229,0.15);
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 28px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   }
   .featured::before {
     content: '';
@@ -337,8 +340,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(99,102,241,0.1);
-    color: var(--accent-light);
+    background: rgba(79,70,229,0.08);
+    color: var(--accent);
     padding: 4px 12px;
     border-radius: 6px;
     font-size: 0.65rem;
@@ -346,7 +349,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 14px;
-    border: 1px solid rgba(99,102,241,0.2);
+    border: 1px solid rgba(79,70,229,0.15);
   }
   .featured h2 {
     font-size: 1.25rem;
@@ -376,10 +379,12 @@
     border-radius: 12px;
     padding: 20px 22px;
     transition: all 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   }
   .player-card:hover {
     background: var(--bg-card-hover);
-    border-color: rgba(34,197,94,0.3);
+    border-color: rgba(22,163,74,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   }
   .player-card .player-name {
     font-size: 0.95rem;
@@ -413,6 +418,7 @@
     border-radius: 12px;
     padding: 22px;
     margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   }
   .sidebar .section-title {
     font-size: 0.82rem;
@@ -470,7 +476,6 @@
 </style>
 </head>
 <body>
-
 <!-- Header -->
 <header>
   <div class="header-inner">
@@ -570,192 +575,100 @@
       <div class="news-card">
         <span class="tag tag-result">RESULT</span>
         <h3><a href="https://japanopenpoker.com/">JOPT 2026 Tokyo #01 Main Event ―「めっし」さんが3,241エントリーの頂点に</a></h3>
-        <p>JOPT 2026 Tokyo #01のメインイベントで「めっし」選手が優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</sult">1,368エントリーの頂点に立ち、WSOPレディース部門の連覇を達成。日本人初のブレスレット2本目。さらにEPT Barcelona Womensも優勝し2冠達成。</div>
-          <div class="player-prize">$184,094</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">Akira Takasugi</div>
-          <div class="player-event">APT Taipei 2025 Main Event</div>
-          <div class="player-result">APT史上最大の2,547エントリーを記録したメインイベントで優勝。ファイナルテーブルには日本人3名が進出。</div>
-          <div class="player-prize">$586,000</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">世界のヨコサワ / Masato Yokosawa</div>
-          <div class="player-event">2025 PGT Kickoff / EPT / WSOP</div>
-          <div class="player-result">PGT Kickoff $5,100 NLHEで初のPGTタイトル獲得。EPT・WSOP・ARIA等で多数入賞。生涯獲得賞金$417万超。</div>
-          <div class="player-prize">$142,800 (PGT)</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">みさわ / Jun Obara</div>
-          <div class="player-event">Triton SHRS $40K Mystery Bounty</div>
-          <div class="player-result">デビュー戦でTriton史上初の日本人チャンピオンに。「Bounty Hunter」の異名を獲得。2025年間賞金$371万。</div>
-          <div class="player-prize">$1,739,000</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tournament News -->
-    <div id="tournaments">
-      <div class="section-title">&#9824; 国内トーナメント情報</div>
-
-      <div class="news-card">
-        <span class="tag tag-result">RESULT</span>
-        <h3><a href="https://japanopenpoker.com/">JOPT 2026 Tokyo #01 Main Event ―「めっし」さんが3,241エントリーの頂点に</a></h3>
-        <p>JOPT 2026 Tokyo #01のメインイベントで「めっし」選手が優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</sult">1,368エントリーの頂点に立ち、WSOPレディース部門の連覇を達成。日本人初のブレスレット2本目。さらにEPT Barcelona Womensも優勝し2冠達成。</div>
-          <div class="player-prize">$184,094</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">Akira Takasugi</div>
-          <div class="player-event">APT Taipei 2025 Main Event</div>
-          <div class="player-result">APT史上最大の2,547エントリーを記録したメインイベントで優勝。ファイナルテーブルには日本人3名が進出。</div>
-          <div class="player-prize">$586,000</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">世界のヨコサワ / Masato Yokosawa</div>
-          <div class="player-event">2025 PGT Kickoff / EPT / WSOP</div>
-          <div class="player-result">PGT Kickoff $5,100 NLHEで初のPGTタイトル獲得。EPT・WSOP・ARIA等で多数入賞。生涯獲得賞金$417万超。</div>
-          <div class="player-prize">$142,800 (PGT)</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">みさわ / Jun Obara</div>
-          <div class="player-event">Triton SHRS $40K Mystery Bounty</div>
-          <div class="player-result">デビュー戦でTriton史上初の日本人チャンピオンに。「Bounty Hunter」の異名を獲得。2025年間賞金$371万。</div>
-          <div class="player-prize">$1,739,000</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tournament News -->
-    <div id="tournaments">
-      <div class="section-title">国内トーナメント情報</div>
-
-      <div class="news-card">
-        <span class="tag tag-result">RESULT</span>
-        <h3><a>JOPT 2026 Tokyo #01 Main Event</a></h3>
-        <p>JOPT 2026 Tokyo #01のメインイベントで「めっし」選手が優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</sult">1,368エントリーの頂点に立ち、WSOPレディース部門の連覇を達成。日本人初のブレスレット2本目。さらにEPT Barcelona Womensも優勝し2冠達成。</div>
-          <div class="player-prize">$184,094</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">Akira Takasugi</div>
-          <div class="player-event">APT Taipei 2025 Main Event</div>
-          <div class="player-result">APT史上最大の2,547エントリーを記録したメインイベントで優勝。ファイナルテーブルには日本人3名が進出。</div>
-          <div class="player-prize">$586,000</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">世界のヨコサワ / Masato Yokosawa</div>
-          <div class="player-event">2025 PGT Kickoff / EPT / WSOP</div>
-          <div class="player-result">PGT Kickoff $5,100 NLHEで初のPGTタイトル獲得。EPT・WSOP・ARIA等で多数入賞。生涯獲得賞金$417万超。</div>
-          <div class="player-prize">$142,800 (PGT)</div>
-        </div>
-        <div class="player-card">
-          <div class="player-name">みさわ / Jun Obara</div>
-          <div class="player-event">Triton SHRS $40K Mystery Bounty</div>
-          <div class="player-result">デビュー戦でTriton史上初の日本人チャンピオンに。「Bounty Hunter」の異名を獲得。2025年間賞金$371万。</div>
-          <div class="player-prize">$1,739,000</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tournament News -->
-    <div id="tournaments">
-      <div class="section-title">国内トーナメント情報</div>
-
-      <div class="news-card">
-        <span class="tag tag-result">RESULT</span>
-        <h3><a>JOPT 2026 Tokyo Main Event</a></h3>
-        <p>メインイベントで優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</p>p>
+        <p>JOPT 2026 Tokyo #01のメインイベントで「めっし」選手が優勝。3,241エントリーという過去最大級の参加者数を記録し、日本国内トーナメントの盛り上がりを象徴する大会となった。</p>
         <div class="news-meta">2026.01 ｜ Japan Open Poker Tour</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-tournament">UPCOMING</span>
-        <h3><a>JOPT 2026 Osaka</a></h3>
+        <h3><a href="https://japanopenpoker.com/">JOPT 2026 Osaka ― 3月18日〜22日 堂島リバーフォーラム</a></h3>
         <p>堂島リバーフォーラムにて5日間開催。メインイベントに加え、多数のサイドイベントが用意されている。</p>
         <div class="news-meta">2026.03.18-22 ｜ 堂島リバーフォーラム</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-tournament">UPCOMING</span>
-        <h3><a>P1 GRANDPRIX 2026</a></h3>
+        <h3><a href="https://light-three.com/pokerevent/">P1 GRANDPRIX 2026 ― 5月1日〜6日 東京開催決定</a></h3>
         <p>オンライン・ライブイベント・リアル店舗を横断するポーカー大会。全国のプレイヤーとファンが集う注目のイベント。</p>
         <div class="news-meta">2026.05.01-06 ｜ 東京</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-tournament">NEW</span>
-        <h3><a>NIPPON SERIES GO</a></h3>
+        <h3><a href="https://nippon-series.jp/">NIPPON SERIES GO ― 地方特化型トーナメントブランド本格始動</a></h3>
         <p>「最も信頼され、エシカルであるポーカーブランド」を目指し、地方でのポーカー文化拡大に向けた新ブランドが始動。</p>
         <div class="news-meta">2026 ｜ NIPPON SERIES</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-tournament">UPCOMING</span>
-        <h3>FUKUOKA SUPER TOURNAMENT IV</h3>
+        <h3>FUKUOKA SUPER TOURNAMENT IV ― 九州最大級、賞金総額1,200万円</h3>
         <p>ホテル会場にグレードアップした九州最大級のポーカートーナメント。</p>
         <div class="news-meta">2026 ｜ 福岡</div>
       </div>
     </div>
 
     <!-- Regulation News -->
-    <div id="regulation">
-      <div class="section-title">法規制・業界動向</div>
+    <div id="regulation" style="margin-top: 32px;">
+      <div class="section-title">&#9878; 法規制・業界動向</div>
 
       <div class="news-card">
         <span class="tag tag-regulation">REGULATION</span>
-        <h3><a>JPBA、業界ガイドラインを策定</a></h3>      <p>2026年1月31日、JPBAは風営法第5号営業店舗向けの適正な運営に向けた業界方針を正式発表。警視庁による都内80店舗一斉調査を受け、業界全体の健全化に向けた動きが加速。</p>
+        <h3><a href="https://jpba-poker.com/">JPBA、業界ガイドラインを策定 ― 風営法5号営業の適正化へ</a></h3>
+        <p>2026年1月31日、JPBAは風営法第5号営業店舗向けの適正な運営に向けた業界方針を正式発表。警視庁による都内80店舗一斉調査を受け、業界全体の健全化に向けた動きが加速。</p>
         <div class="news-meta">2026.01.31 ｜ 日本ポーカー事業者連盟</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-regulation">REGULATION</span>
-        <h3><a>警視庁がアミューズメントカジノ80店舗を一斉調査</a></h3>
+        <h3><a href="https://it-bengosi.com/blog/%E8%AD%A6%E8%A6%96%E5%BA%81%E4%B8%80%E6%96%89%E6%91%98%E7%99%BA%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BA%E3%83%A1%E3%83%B3%E3%83%88%E3%82%AB%E3%82%B8%E3%83%8E/">警視庁がアミューズメントカジノ80店舗を一斉調査 ― 48店舗で違反確認</a></h3>
         <p>2025年12月、渋谷・六本木・歌舞伎町など都内繁華街の80店舗が対象に。6割にあたる48店舗で風営法違反が確認。</p>
         <div class="news-meta">2025.12</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-regulation">REGULATION</span>
-        <h3><a>日本ポーカー連盟、オンラインポーカー関連スポンサーシップを全面停止</a></h3>
+        <h3><a href="https://pokerjapan.jp/onlinepoker_notification/">日本ポーカー連盟、オンラインポーカー関連スポンサーシップを全面停止</a></h3>
         <p>警視庁の指導のもと、すべてのポーカーイベントにおけるオンラインポーカー関連プロモーション活動を停止する方針を決定。</p>
         <div class="news-meta">2024.10〜</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-industry">INDUSTRY</span>
-        <h3>国会でアミューズメントカジノの問題が質疑</h3>
+        <h3>国会でアミューズメントカジノの「ウェブコイン」問題が質疑</h3>
         <p>一部店舗で獲得チップを店舗独自のデジタルポイントに変換する仕組みが問題に。ギャンブル依存症の入り口となる懸念が議論された。</p>
         <div class="news-meta">2026</div>
       </div>
     </div>
 
     <!-- World News -->
-    <div id="world">
-      <div class="section-title">海外トーナメント情報</div>
+    <div id="world" style="margin-top: 32px;">
+      <div class="section-title">&#127758; 海外トーナメント情報</div>
 
       <div class="news-card">
         <span class="tag tag-world">WSOP</span>
-        <h3><a>WSOP 2026 ー 第57回シリーズ、100ブレスレット争奪戦</a></h3>
-        <p>ホースシュー＆パリス・ラスベガスで開催。メインイベント対象,000 NLHE）は7月2日スタート。100個のゴールドブレスレットが授与される。</p>
-        <div class="news-meta">2026.05.26~ ｜ Las Vegas</div>
+        <h3><a href="https://www.wsop.com/">WSOP 2026 ― 第57回シリーズ、100ブレスレット争奪戦 5月26日開幕</a></h3>
+        <p>ホースシュー＆パリス・ラスベガスで開催。メインイベント（$10,000 NLHE）は7月2日スタート。100個のゴールドブレスレットが授与される。</p>
+        <div class="news-meta">2026.05.26〜 ｜ Las Vegas</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-world">TRITON</span>
-        <h3><a>Triton Poker 10周年</a></h3>
+        <h3><a href="https://tritonpokerseries.com/">Triton Poker 10周年 ― 2026年シーズン発表、済州＆モンテネグロでSHRS開催</a></h3>
         <p>Triton Poker が2026年に10周年を迎え、Super High Roller SeriesとTriton ONEを展開。3月に済州島、5月にモンテネグロで開催。</p>
         <div class="news-meta">2026 ｜ Jeju / Montenegro</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-world">APT</span>
-        <h3><a>APT 20周年記念</a></h3>
+        <h3><a href="https://www.theasianpokertour.com/">APT 20周年記念 ― アジア全域で5大フェスティバル開催</a></h3>
         <p>Asian Poker Tourが2026年に20周年を迎え、大型フェスティバルを展開。開幕戦APT Jeju Classicは保証賞金総額約340万ドル。</p>
         <div class="news-meta">2026 ｜ Asia</div>
       </div>
 
       <div class="news-card">
         <span class="tag tag-world">EPT</span>
-        <h3><a>EPT 2026 Season XXII</a></h3>
+        <h3><a href="https://www.pokerstars.com/en/live/ept/">EPT 2026 Season XXII ― ヨーロッパ各都市でシリーズ継続</a></h3>
         <p>PokerStars主催のEuropean Poker Tour。モンテカルロ、バルセロナ、パリ、プラハなどヨーロッパ主要都市で開催。日本人プレイヤーの参戦も増加中。</p>
         <div class="news-meta">2026 ｜ Europe</div>
       </div>
@@ -767,14 +680,15 @@
 
     <!-- Schedule -->
     <section id="schedule">
-      <div class="section-title">SCHEDULE</div>
+      <div class="section-title">&#128197; SCHEDULE</div>
       <div class="schedule-item">
         <span class="schedule-date">03/18 - 03/22</span>
         <div class="schedule-name">JOPT 2026 Osaka</div>
         <div class="schedule-venue">堂島リバーフォーラム</div>
       </div>
       <div class="schedule-item">
-        <span class="schedule-date">03/xx</span>   <div class="schedule-name">Triton SHRS Jeju</div>
+        <span class="schedule-date">03/xx</span>
+        <div class="schedule-name">Triton SHRS Jeju</div>
         <div class="schedule-venue">済州島</div>
       </div>
       <div class="schedule-item">
@@ -811,37 +725,37 @@
 
     <!-- Links -->
     <section>
-      <div class="section-title">LINKS</div>
+      <div class="section-title">&#128279; LINKS</div>
       <div class="link-list">
-        <a href="#">JOPT 公式 <span>external</span></a>
-        <a href="#" target="_blank">WPT Japan <span>external</span></a>
-        <a href="#">AJPC <span>external</span></a>
-        <a href="#">NIPPON SERIES <span>external</span></a>
-        <a href="#">日本ポーカー事業者連盟 <span>external</span></a>
-        <a href="#">日本ポーカー連盟 <span>external</span></a>
-        <a href="#">WSOP Official <span>external</span></a>
-        <a href="#">Triton Poker <span>external</span></a>
-        <a href="#">Asian Poker Tour <span>external</span></a>
-        <a href="#">EPT (PokerStars Live) <span>external</span></a>
+        <a href="https://japanopenpoker.com/" target="_blank">JOPT 公式 <span>&#8599;</span></a>
+        <a href="https://wptevent.jp/" target="_blank">WPT Japan <span>&#8599;</span></a>
+        <a href="https://www.ajpc.jp/" target="_blank">AJPC <span>&#8599;</span></a>
+        <a href="https://nippon-series.jp/" target="_blank">NIPPON SERIES <span>&#8599;</span></a>
+        <a href="https://jpba-poker.com/" target="_blank">日本ポーカー事業者連盟 <span>&#8599;</span></a>
+        <a href="https://pokerjapan.jp/" target="_blank">日本ポーカー連盟 <span>&#8599;</span></a>
+        <a href="https://www.wsop.com/" target="_blank">WSOP Official <span>&#8599;</span></a>
+        <a href="https://tritonpokerseries.com/" target="_blank">Triton Poker <span>&#8599;</span></a>
+        <a href="https://www.theasianpokertour.com/" target="_blank">Asian Poker Tour <span>&#8599;</span></a>
+        <a href="https://www.pokerstars.com/en/live/ept/" target="_blank">EPT (PokerStars Live) <span>&#8599;</span></a>
       </div>
     </section>
 
     <!-- About -->
     <section>
-      <div class="section-title">ABOUT</div>
+      <div class="section-title">&#9881; ABOUT</div>
       <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.75;">
         <strong style="color:var(--text)">Poker Japan Daily</strong> は日本国内のポーカー情報を自動収集・更新するニュースメディアです。国内トーナメント、海外で活躍する日本人プレイヤー、業界ニュース、法規制の動向を毎日お届けします。
       </p>
       <p style="font-size:0.72rem; color:var(--text-muted); margin-top:10px; opacity:0.7;">
-        NOTE: 本サイトの情報はWeb検索により自動収集されたものです。最新・正確な情報は各公式サイトをご確認ください。
+        ※ 本サイトの情報はWeb検索により自動収集されたものです。最新・正確な情報は各公式サイトをご確認ください。
       </p>
     </section>
   </aside>
 </main>
 
 <footer>
-  <p>Copyright 2026 Poker Japan Daily - Japanese Poker News & Tournament Media</p>
-  <p style="margin-top:6px; opacity:0.6;">Powered by Claude AI | Auto-updated daily</p>
+  <p>&copy; 2026 <a href="https://pokernews.site/">Poker Japan Daily</a> ― Japanese Poker News &amp; Tournament Media</p>
+  <p style="margin-top:6px; opacity:0.6;">Powered by Claude AI ｜ Auto-updated daily</p>
 </footer>
 
 </body>
