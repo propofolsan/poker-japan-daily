@@ -9,8 +9,8 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: #0d0f14;
-    color: #e0e0e0;
+    background: #f5f5f0;
+    color: #2c2c2c;
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
     line-height: 1.8;
     min-height: 100vh;
@@ -21,13 +21,13 @@
   .header {
     text-align: center;
     padding: 40px 20px 30px;
-    border-bottom: 2px solid #e8c44a33;
+    border-bottom: 2px solid #1a6b3c33;
     margin-bottom: 32px;
   }
   .header-logo {
     font-size: 14px;
     letter-spacing: 6px;
-    color: #e8c44a;
+    color: #1a6b3c;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 8px;
@@ -35,36 +35,37 @@
   .header h1 {
     font-size: 28px;
     font-weight: 900;
-    color: #ffffff;
+    color: #1a1a1a;
     margin-bottom: 6px;
   }
   .header .date {
     font-size: 15px;
-    color: #888;
+    color: #777;
     font-weight: 400;
   }
   .header .tagline {
     margin-top: 12px;
     font-size: 13px;
-    color: #4a9fe8;
+    color: #2563eb;
     letter-spacing: 1px;
   }
 
   /* Card */
   .card {
-    background: #161922;
+    background: #ffffff;
     border-radius: 12px;
     padding: 28px 24px;
     margin-bottom: 24px;
-    border: 1px solid #1e2230;
-    transition: border-color 0.2s;
+    border: 1px solid #e0e0da;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .card:hover { border-color: #e8c44a44; }
+  .card:hover { border-color: #1a6b3c44; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .card-title {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 18px;
-    color: #fff;
+    color: #1a1a1a;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -74,89 +75,89 @@
   /* News items */
   .news-item {
     padding: 16px 0;
-    border-bottom: 1px solid #1e2230;
+    border-bottom: 1px solid #ebebeb;
   }
   .news-item:last-child { border-bottom: none; }
   .news-item h3 {
     font-size: 16px;
     font-weight: 700;
-    color: #e8c44a;
+    color: #1a6b3c;
     margin-bottom: 6px;
   }
   .news-item p {
     font-size: 14px;
-    color: #b0b0b0;
+    color: #555;
     line-height: 1.85;
   }
   .news-item .highlight {
-    color: #4a9fe8;
+    color: #2563eb;
     font-weight: 700;
   }
   .news-item .amount {
-    color: #e8c44a;
+    color: #b45309;
     font-weight: 700;
   }
 
   /* Strategy */
   .strategy-block {
-    background: #1a1e2a;
+    background: #f8faf8;
     border-radius: 8px;
     padding: 18px 20px;
     margin: 14px 0;
-    border-left: 3px solid #4a9fe8;
+    border-left: 3px solid #2563eb;
   }
   .strategy-block p {
     font-size: 14px;
-    color: #c8c8c8;
+    color: #444;
     line-height: 1.85;
   }
   .strategy-label {
     font-size: 12px;
     font-weight: 700;
-    color: #4a9fe8;
+    color: #2563eb;
     letter-spacing: 1px;
     margin-bottom: 6px;
   }
 
   /* Quiz */
   .quiz-situation {
-    background: #1a1e2a;
+    background: #f8faf8;
     border-radius: 8px;
     padding: 18px 20px;
     margin: 14px 0;
     font-size: 14px;
-    color: #c8c8c8;
+    color: #444;
     line-height: 1.85;
   }
   .quiz-options {
     margin: 16px 0;
   }
   .quiz-option {
-    background: #1e2230;
+    background: #f5f5f0;
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #e0e0e0;
+    color: #2c2c2c;
     cursor: default;
-    border: 1px solid transparent;
+    border: 1px solid #e0e0da;
   }
   .quiz-option.correct {
-    border-color: #e8c44a;
-    background: #e8c44a11;
+    border-color: #1a6b3c;
+    background: #e8f5e9;
   }
   .quiz-answer {
-    background: #0d1a0d;
-    border: 1px solid #2a5a2a;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
     border-radius: 8px;
     padding: 18px 20px;
     margin-top: 14px;
     font-size: 14px;
-    color: #a8d8a8;
+    color: #2e7d32;
     line-height: 1.85;
   }
   .quiz-answer-label {
-    color: #e8c44a;
+    color: #1a6b3c;
     font-weight: 700;
     margin-bottom: 6px;
     font-size: 13px;
@@ -165,11 +166,11 @@
   /* Mind */
   .mind-text {
     font-size: 14px;
-    color: #b0b0b0;
+    color: #555;
     line-height: 1.9;
   }
   .mind-text strong {
-    color: #e8c44a;
+    color: #1a6b3c;
   }
 
   /* Data card */
@@ -180,17 +181,17 @@
   .data-stat .number {
     font-size: 42px;
     font-weight: 900;
-    color: #e8c44a;
+    color: #1a6b3c;
     line-height: 1.2;
   }
   .data-stat .unit {
     font-size: 16px;
-    color: #888;
+    color: #777;
     margin-top: 4px;
   }
   .data-stat .desc {
     font-size: 14px;
-    color: #b0b0b0;
+    color: #555;
     margin-top: 10px;
     line-height: 1.7;
   }
@@ -199,15 +200,15 @@
   .footer {
     text-align: center;
     padding: 32px 20px;
-    border-top: 1px solid #1e2230;
+    border-top: 1px solid #e0e0da;
     margin-top: 16px;
   }
   .footer p {
     font-size: 13px;
-    color: #555;
+    color: #999;
   }
   .footer .brand {
-    color: #e8c44a;
+    color: #1a6b3c;
     font-weight: 700;
   }
 
@@ -265,7 +266,7 @@
       <p>
         3月18日〜22日に大阪・堂島リバーフォーラムで開催された<span class="highlight">JOPT 2026 Osaka #01</span>が閉幕。
         NLH Millions、メインイベントなど多数のトーナメントが行われ、国内シーンが盛り上がりを見せました。
-        またオンラインでは<span class="highlight">PokerStars SCOOP 2026</span>が開催中で、メインイベントの保証賾金総額は<span class="amount">$550万</span>。日本からの参戦チャンスです。
+        またオンラインでは<span class="highlight">PokerStars SCOOP 2026</span>が開催中で、メインイベントの保証賞金総額は<span class="amount">$550万</span>。日本からの参戦チャンスです。
       </p>
     </div>
   </div>
@@ -275,8 +276,8 @@
     <div class="card-title">
       <span class="emoji">🎯</span> 今日の戦略ワンポイント
     </div>
-    <p style="font-size:15px; color:#ccc; margin-bottom:14px;">
-      <strong style="color:#e8c44a;">テーマ：3ベットポット OOP のCBet戦略</strong>
+    <p style="font-size:15px; color:#555; margin-bottom:14px;">
+      <strong style="color:#1a6b3c;">テーマ：3ベットポット OOP のCBet戦略</strong>
     </p>
     <div class="strategy-block">
       <div class="strategy-label">GTO的視点</div>
@@ -290,14 +291,14 @@
       <div class="strategy-label">Exploit的視点</div>
       <p>
         ただしライブ・低〜中レートでは、相手が3ベットポットで「降りすぎる」傾向があります。
-        特にA-highやK-highのドライボード（例：K♠7♦2♣）では、60〜75%ポットの大きめCBetでフォールドエクイティを最大化できます。
+        特にA-highやK-highのドライボード（例：K♠7♦2♣）では、60〜75%ポットの大きめCBetでフォールドエキティを最大化できます。
         相手がフロップで40%以上フォールドしている場合、ATC（Any Two Cards）に近い頻度でCBetが利益的になります。
       </p>
     </div>
     <div class="strategy-block">
       <div class="strategy-label">💡 具体例</div>
       <p>
-        <strong style="color:#fff;">あなた：A♠Q♥（BTN 3bet → BB call）</strong><br>
+        <strong style="color:#1a1a1a;">あなた：A♠Q♥（BTN 3bet → BB call）</strong><br>
         フロップ：K♦8♠3♣（ポット: 22BB、残りスタック: 75BB）<br><br>
         → SPR ≈ 3.4。A♠Q♥はバックドアのナッツフラッシュドローとオーバーカードを持ち、Kハイボードは3ベッターレンジに有利。
         ここではポットの30%（約7BB）のCBetが推奨。相手がKx以外でコールしにくい状況を作り、ターン以降のバレルプランも立てやすくなります。
@@ -311,12 +312,12 @@
       <span class="emoji">🧠</span> 今日のハンドクイズ
     </div>
     <div class="quiz-situation">
-      <strong style="color:#fff;">状況：</strong>ライブ $2/$5 NLH、有効スタック $500<br><br>
-      あなたはBBで <strong style="color:#e8c44a;">9♥8♥</strong> を持っています。<br>
+      <strong style="color:#1a1a1a;">状況：</strong>ライブ $2/$5 NLH、有効スタック $500<br><br>
+      あなたはBBで <strong style="color:#1a6b3c;">9♥8♥</strong> を持っています。<br>
       UTGが$15にレイズ、MPとCOがコール、あなたもコール。<br>
-      <strong style="color:#fff;">フロップ：</strong> 7♠6♦2♣（ポット $62）<br><br>
+      <strong style="color:#1a1a1a;">フロップ：</strong> 7♠6♦2♣（ポット $62）<br><br>
       あなたがチェック、UTGが$30ベット、MPフォールド、COコール。<br>
-      <strong style="color:#4a9fe8;">あなたのアクションは？</strong>
+      <strong style="color:#2563eb;">あなたのアクションは？</strong>
     </div>
     <div class="quiz-options">
       <div class="quiz-option"><strong>A.</strong> フォールド — ガットショットだけでは続行できない</div>
@@ -328,8 +329,8 @@
       <p>
         9♥8♥はOESD（オープンエンドストレートドロー：5か10で完成）を持ち、約31.5%のエクイティがあります。
         ポットオッズは$30 / ($62+$30+$30+$30) = 約19.7%で十分にコールできます。<br><br>
-        <strong style="color:#e8c44a;">なぜAではないか：</strong>OESDは8アウツで、次のカードで完成する確率は約17%。しかしターン+リバーで見ると31.5%あり、さらにストレート完成時のインプライドオッズも大きい（相手のオーバーペアやツーペアからバリューを取れる）。<br><br>
-        <strong style="color:#e8c44a;">なぜCではないか：</strong>マルチウェイポットでの チェックレイズはリスクが高すぎます。UTGのレイズ＋COのコールがあり、少なくとも一人は強いハンドを持っている可能性が高い。また$120へのレイズ後、4ベットされた場合のプランが立てにくく、フォールドエクイティも限定的です。
+        <strong style="color:#1a6b3c;">なぜAではないか：</strong>OESDは8アウツで、次のカードで完成する確率は約17%。しかしターン+リバーで見ると31.5%あり、さらにストレート完成時のインプライドオッズも大きい（相手のオーバーペアやツーペアからバリューを取れる）。<br><br>
+        <strong style="color:#1a6b3c;">なぜCではないか：</strong>マルチウェイポットでの チェックレイズはリスクが高すぎます。UTGのレイズ＋COのコールがあり、少なくとも一人は強いハンドを持っている可能性が高い。また$120へのレイズ後、4ベットされた場合のプランが立てにくく、フォールドエクイティも限定的です。
         コールしてポジションレスでもインプライドオッズを活かすのが最善です。
       </p>
     </div>
@@ -346,7 +347,7 @@
       </p>
       <br>
       <p>
-        Triton Jejuで日本人プレイヤーが大きな結果を出しましたが、大事なのは「賞金顭」ではなく「正しい判断を積み重ねたプロセス」です。
+        Triton Jejuで日本人プレイヤーが大きな結果を出しましたが、大事なのは「賞金額」ではなく「正しい判断を積み重ねたプロセス」です。
         ポーカーは短期的に分散（バリアンス）が大きいゲーム。1セッションの結果で自分の実力を評価すると、勝ったときは過信し、負けたときは自信を失います。
       </p>
       <br>
@@ -382,8 +383,8 @@
       <div class="number">$2,000万</div>
       <div class="unit">約30億円</div>
       <div class="desc">
-        Triton ONE Jeju 2026の総賞金プール顭。<br>
-        わずか10日間のフェスティバルで生み出されたこの金顭は、<br>
+        Triton ONE Jeju 2026の総賞金プール額。<br>
+        わずか10日間のフェスティバルで生み出されたこの金額は、<br>
         アジア圏のポーカーイベントとして過去最大級の規模です。<br>
         日本人プレイヤーだけで約15億円以上を獲得しました。
       </div>
@@ -393,7 +394,7 @@
   <!-- Footer -->
   <div class="footer">
     <p><span class="brand">Poker Japan Daily</span> — 毎朝更新</p>
-    <p style="margin-top:8px; font-size:12px; color:#444;">© 2026 Poker Japan Daily. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px; color:#999;">© 2026 Poker Japan Daily. All rights reserved.</p>
   </div>
 
 </div>
