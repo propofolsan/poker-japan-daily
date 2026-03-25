@@ -1,252 +1,401 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poker Japan Daily - 2026年03月25日</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: #0d0f14;
-            color: #e0e0e0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
-            line-height: 1.7;
-            padding: 16px;
-        }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        header {
-            text-align: center;
-            padding: 24px 16px;
-            border-bottom: 2px solid #e8c44a;
-            margin-bottom: 24px;
-        }
-        header h1 {
-            color: #e8c44a;
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-        header .date {
-            color: #4a9fe8;
-            font-size: 1rem;
-        }
-        .card {
-            background: linear-gradient(145deg, #161921, #1a1d25);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #2a2d35;
-        }
-        .card h2 {
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #2a2d35;
-        }
-        .card h2.news { color: #e8c44a; }
-        .card h2.strategy { color: #4a9fe8; }
-        .card h2.quiz { color: #4ae87a; }
-        .card h2.mind { color: #e8c44a; }
-        .card h2.data { color: #4a9fe8; }
-        .news-item {
-            margin-bottom: 16px;
-            padding-left: 12px;
-            border-left: 3px solid #e8c44a;
-        }
-        .news-item h3 {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
-        .news-item p {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-        }
-        .highlight {
-            color: #4ae87a;
-            font-weight: bold;
-        }
-        .gold {
-            color: #e8c44a;
-        }
-        .blue {
-            color: #4a9fe8;
-        }
-        .hand-example {
-            background: #1e2128;
-            border-radius: 8px;
-            padding: 14px;
-            margin: 12px 0;
-            font-family: monospace;
-        }
-        .quiz-option {
-            padding: 10px 14px;
-            margin: 8px 0;
-            background: #1e2128;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .quiz-option.correct {
-            background: linear-gradient(90deg, rgba(74, 232, 122, 0.2), transparent);
-            border-left: 3px solid #4ae87a;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        ul li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #4a9fe8;
-        }
-        .stat-box {
-            background: linear-gradient(135deg, #1a1d25, #252830);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #4a9fe8;
-        }
-        .stat-number {
-            font-size: 2.2rem;
-            color: #4ae87a;
-            font-weight: bold;
-        }
-        .stat-label {
-            color: #b0b0b0;
-            margin-top: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 24px 16px;
-            border-top: 1px solid #2a2d35;
-            color: #666;
-            font-size: 0.85rem;
-        }
-        @media (max-width: 480px) {
-            header h1 { font-size: 1.4rem; }
-            .card { padding: 16px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poker Japan Daily â 2026å¹´3æ25æ¥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d0f14;
+    color: #e0e0e0;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 20px 16px 40px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 2px solid #e8c44a33;
+    margin-bottom: 32px;
+  }
+  .header-logo {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #e8c44a;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+  .header .date {
+    font-size: 15px;
+    color: #888;
+    font-weight: 400;
+  }
+  .header .tagline {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #4a9fe8;
+    letter-spacing: 1px;
+  }
+
+  /* Card */
+  .card {
+    background: #161922;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    border: 1px solid #1e2230;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #e8c44a44; }
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .emoji { font-size: 24px; }
+
+  /* News items */
+  .news-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #1e2230;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e8c44a;
+    margin-bottom: 6px;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #b0b0b0;
+    line-height: 1.85;
+  }
+  .news-item .highlight {
+    color: #4a9fe8;
+    font-weight: 700;
+  }
+  .news-item .amount {
+    color: #e8c44a;
+    font-weight: 700;
+  }
+
+  /* Strategy */
+  .strategy-block {
+    background: #1a1e2a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    border-left: 3px solid #4a9fe8;
+  }
+  .strategy-block p {
+    font-size: 14px;
+    color: #c8c8c8;
+    line-height: 1.85;
+  }
+  .strategy-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #4a9fe8;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* Quiz */
+  .quiz-situation {
+    background: #1a1e2a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: #c8c8c8;
+    line-height: 1.85;
+  }
+  .quiz-options {
+    margin: 16px 0;
+  }
+  .quiz-option {
+    background: #1e2230;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #e0e0e0;
+    cursor: default;
+    border: 1px solid transparent;
+  }
+  .quiz-option.correct {
+    border-color: #e8c44a;
+    background: #e8c44a11;
+  }
+  .quiz-answer {
+    background: #0d1a0d;
+    border: 1px solid #2a5a2a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #a8d8a8;
+    line-height: 1.85;
+  }
+  .quiz-answer-label {
+    color: #e8c44a;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  /* Mind */
+  .mind-text {
+    font-size: 14px;
+    color: #b0b0b0;
+    line-height: 1.9;
+  }
+  .mind-text strong {
+    color: #e8c44a;
+  }
+
+  /* Data card */
+  .data-stat {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .data-stat .number {
+    font-size: 42px;
+    font-weight: 900;
+    color: #e8c44a;
+    line-height: 1.2;
+  }
+  .data-stat .unit {
+    font-size: 16px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .data-stat .desc {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid #1e2230;
+    margin-top: 16px;
+  }
+  .footer p {
+    font-size: 13px;
+    color: #555;
+  }
+  .footer .brand {
+    color: #e8c44a;
+    font-weight: 700;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 12px 12px 32px; }
+    .header h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .card-title { font-size: 17px; }
+    .data-stat .number { font-size: 34px; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🂣 Poker Japan Daily</h1>
-            <p class="date">📅 2026年03月25日（水）</p>
-        </header>
+<div class="container">
 
-        <main>
-            <!-- ニュースセクション -->
-            <section class="card">
-                <h2 class="news">📰 今日のポーカーニュース</h2>
-                
-                <div class="news-item">
-                    <h3>🏆 Triton Poker Madrid — 日本人初のメインイベントFT進出</h3>
-                    <p><span class="highlight">山田健太プロがTriton Madrid メインイベント（Buy-in $100K）でファイナルテーブル進出</span>。エントリー142名中、現在6位/9名で残りスタック4.2M（平均3.1M）。日本人として同シリーズ史上初の快挙。FTは日本時間26日AM3:00開始。最低賞金<span class="gold">$450,000</span>確定。</p>
-                </div>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo">â  â¥ â¦ â£</div>
+    <h1>Poker Japan Daily</h1>
+    <div class="date">2026å¹´3æ25æ¥ï¼æ°´ï¼</div>
+    <div class="tagline">æ¥æ¬äººãã¬ã¤ã¤ã¼ã®ããã®æ¯æãã¼ã«ã¼ãã¥ã¼ã¹</div>
+  </div>
 
-                <div class="news-item">
-                    <h3>🌴 APT Manila 2026 — メインイベント結果確定</h3>
-                    <p>APTマニラ・メインイベント（₱55,000）が終了。優勝は韓国のPark Joon-ho（<span class="gold">₱8,250,000 / 約2,200万円</span>）。日本人最高位は佐藤美咲選手の<span class="blue">17位（₱385,000）</span>。エントリー総数は過去最高の1,247名を記録。</p>
-                </div>
-
-                <div class="news-item">
-                    <h3>📢 業界ニュース：GGPoker Japan リーグ発表</h3>
-                    <p>GGPokerが日本向け新シリーズ「GG Japan Championship 2026」を6月開催と発表。オンライン予選＋韓国済州島でのライブファイナル形式。メインイベントGTD <span class="highlight">$500,000</span>。日本居住者限定サテライト4月1日スタート。</p>
-                </div>
-            </section>
-
-            <!-- 戦略セクション -->
-            <section class="card">
-                <h2 class="strategy">🎯 今日の戦略ワンポイント</h2>
-                <h3 style="color:#fff; margin-bottom:12px;">BTN vs BB — 3bet pot のフロップ戦略</h3>
-                <p>BTNオープン2.5BBに対し、BBが3bet（9BB）→コール。ポット19BB。</p>
-                
-                <div class="hand-example">
-                    <strong>シチュエーション</strong><br>
-                    Hero (BB): A♠K♦<br>
-                    Board: K♥ 8♠ 3♣<br>
-                    Effective Stack: 91BB（残り）
-                </div>
-
-                <p><span class="gold">【GTO解答】</span> このボードはBBに有利なテクスチャ。Kxのトップペア保有率が高く、セット（88/33）も含む。</p>
-
-                <ul>
-                    <li><strong>推奨：レンジCB 33%サイズ（約6BB）</strong></li>
-                    <li>AKはバリューの中核。A♠でバックドアFDブロッカーがあるため、この組み合わせは<span class="highlight">100%ベット</span></li>
-                    <li>チェックレンジ：AQ、AJs（ボード非ヒット＋ターンでプレッシャーをかけやすいハンド）</li>
-                </ul>
-
-                <p style="margin-top:12px; color:#b0b0b0;">💡 <strong>Exploitアジャスト</strong>：相手のフロートが多い場合、55%サイズに変更してターンでバレルを打てる状況を作る。</p>
-            </section>
-
-            <!-- クイズセクション -->
-            <section class="card">
-                <h2 class="quiz">🧠 今日のハンドクイズ</h2>
-                
-                <div class="hand-example">
-                    <strong>【状況】</strong><br>
-                    トーナメント：50BB効果スタック / 9人テーブル<br>
-                    Hero (CO): Q♥J♥<br>
-                    プリフロップ: HJオープン2.2BB → Heroコール → SB 3bet 7.5BB → HJフォールド → ?
-                </div>
-
-                <p style="margin:16px 0; color:#fff;"><strong>Heroのアクションは？</strong></p>
-
-                <div class="quiz-option">
-                    A. フォールド — スーテッドだがOOP戦になり不利
-                </div>
-                <div class="quiz-option correct">
-                    ✅ B. コール — ポットオッズ良好＆インプライドオッズあり
-                </div>
-                <div class="quiz-option">
-                    C. 4bet to 18BB — フォールドエクイティを狙う
-                </div>
-
-                <p style="margin-top:16px; padding:12px; background:#1e2128; border-radius:8px;">
-                    <span class="highlight">【解説】</span> SBの3betレンジは通常タイト（JJ+, AK, AQs程度）だが、ポットオッズは<span class="blue">7.5 : 5.3 = 約1.4:1</span>。QJsは約32%のエクイティを持ち、セット・ストレート・フラッシュ完成時のインプライドオッズも考慮するとコールがEV+。4betは50BB効果スタックではコミットしてしまうため非推奨。
-                </p>
-            </section>
-
-            <!-- マインドセクション -->
-            <section class="card">
-                <h2 class="mind">💰 今日のマインド・収支管理</h2>
-                <ul>
-                    <li><strong>「結果ではなくプロセスを記録する」</strong><br>今日のセッションで最も良かった判断を3つメモ。勝敗に関係なく成長を可視化する。</li>
-                    <li><strong>「バンクロール20BI未満でレートを上げない」</strong><br>NL50→NL100への移行は最低$2,000確保。急ぎは破産への最短距離。</li>
-                    <li><strong>「B-Gameを認識したら即離席」</strong><br>プロはA-Gameで打てない時間帯を排除することで月間収支を15-20%改善するデータあり（Jared Tendler研究）。</li>
-                </ul>
-            </section>
-
-            <!-- データセクション -->
-            <section class="card">
-                <h2 class="data">📊 今日の一言データ</h2>
-                <div class="stat-box">
-                    <div class="stat-number">18.7%</div>
-                    <div class="stat-label">BTNからのスチール成功率（6-max平均）</div>
-                </div>
-                <p style="margin-top:16px; color:#b0b0b0;">
-                    📈 GTO Wizardの最新データによると、6-maxのBTNオープンに対するBB 3bet率は平均<span class="blue">12.3%</span>。つまり<span class="highlight">87.7%の状況でBBはフォールドorコール</span>。BTNからの積極的なスチールは依然として最も収益性の高いスポットであり、2.2BBオープンで+0.15BB/handのEVが期待できる。
-                </p>
-            </section>
-        </main>
-
-        <footer>
-            <p>🂣 Poker Japan Daily — 毎朝更新</p>
-            <p style="margin-top:8px;">Good luck at the tables! 🍀</p>
-        </footer>
+  <!-- ä»æ¥ã®ãã¼ã«ã¼ãã¥ã¼ã¹ -->
+  <div class="card">
+    <div class="card-title">
+      <span class="emoji">ð°</span> ä»æ¥ã®ãã¼ã«ã¼ãã¥ã¼ã¹
     </div>
+
+    <div class="news-item">
+      <h3>Triton ONE Jeju 2026 â æ¥æ¬äººãä¸çã®èå°ã§å¤§èºé²</h3>
+      <p>
+        3æ5æ¥ã15æ¥ã«éå½ã»æ¸å·å³¶ã§éå¬ãããTriton ONE Jejuã§ãæ¥æ¬äººãã¬ã¤ã¤ã¼ãç®è¦ã¾ããæç¸¾ãåãã¾ããã
+        <span class="highlight">ä¸­è¥¿ç¿å¤ª</span>ãã¡ã¤ã³ã¤ãã³ãã§<span class="amount">3ä½å¥è³ï¼ç´1åå / $641,000ï¼</span>ã
+        <span class="highlight">éæ³ããª</span>ãMystery Bountyã¤ãã³ãã§<span class="amount">åªåï¼ç´6,200ä¸å / $395,000ï¼</span>ãéæã
+        ããã«<span class="highlight">åç°ä¸æ</span>ãã¡ã¤ã³ã¤ãã³ã<span class="amount">6ä½ï¼ç´4,400ä¸å / $279,000ï¼</span>ã¨ã
+        æ¥æ¬å¢ãä¸çã®ãã¤ã¹ãã¼ã¯ã¹ã·ã¼ã³ã§å­å¨æãç¤ºãã¾ãããä¿³åªã®<span class="highlight">ç°ä¸­å­</span>ããµã¤ãã¤ãã³ãã§10ä½å¥è³ãæããã¦ãã¾ãã
+      </p>
+    </div>
+
+    <div class="news-item">
+      <h3>PokerGO Cup 2026 éå¹ â Lichtenbergerãã¡ã¤ã³å¶è¦ãç·åçèã¯Brock Wilson</h3>
+      <p>
+        ã©ã¹ãã¬ã¹ã§éå¬ãããPokerGO Cup 2026ã3æ16æ¥ã«éå¹ã
+        ã¡ã¤ã³ã¤ãã³ãï¼$15K NLHï¼ã¯<span class="highlight">Andrew Lichtenberger</span>ã<span class="amount">$257,400</span>ãç²å¾ãåªåã
+        ããã§èªèº«9åº¦ç®ã®PGTã¿ã¤ãã«ã§ãã
+        ã·ãªã¼ãºç·åã§ã¯<span class="highlight">Brock Wilson</span>ã467ãã¤ã³ãã§Player of the Seriesã«è¼ãã¾ããã
+        Sean Winterã$10K NLHã§8åº¦ç®ã®PGTã¿ã¤ãã«ãç²å¾ãããªã©ãããã©ã³å¢ã®å¼·ããåãå¤§ä¼ã§ããã
+      </p>
+    </div>
+
+    <div class="news-item">
+      <h3>JOPT 2026 Osaka #01 éå¹ & SCOOP 2026éå¬ä¸­</h3>
+      <p>
+        3æ18æ¥ã22æ¥ã«å¤§éªã»å å³¶ãªãã¼ãã©ã¼ã©ã ã§éå¬ããã<span class="highlight">JOPT 2026 Osaka #01</span>ãéå¹ã
+        NLH Millionsãã¡ã¤ã³ã¤ãã³ããªã©å¤æ°ã®ãã¼ãã¡ã³ããè¡ãããå½åã·ã¼ã³ãçãä¸ãããè¦ãã¾ããã
+        ã¾ããªã³ã©ã¤ã³ã§ã¯<span class="highlight">PokerStars SCOOP 2026</span>ãéå¬ä¸­ã§ãã¡ã¤ã³ã¤ãã³ãã®ä¿è¨¼è³éç·é¡ã¯<span class="amount">$550ä¸</span>ãæ¥æ¬ããã®åæ¦ãã£ã³ã¹ã§ãã
+      </p>
+    </div>
+  </div>
+
+  <!-- ä»æ¥ã®æ¦ç¥ã¯ã³ãã¤ã³ã -->
+  <div class="card">
+    <div class="card-title">
+      <span class="emoji">ð¯</span> ä»æ¥ã®æ¦ç¥ã¯ã³ãã¤ã³ã
+    </div>
+    <p style="font-size:15px; color:#ccc; margin-bottom:14px;">
+      <strong style="color:#e8c44a;">ãã¼ãï¼3ãããããã OOP ã®CBetæ¦ç¥</strong>
+    </p>
+    <div class="strategy-block">
+      <div class="strategy-label">GTOçè¦ç¹</div>
+      <p>
+        3ããããããã§OOPï¼ã¢ã¦ããªããã¸ã·ã§ã³ï¼ããã®CBetã¯ãSPRï¼ã¹ã¿ãã¯å¯¾ãããæ¯ï¼ãä½ãå ´é¢ã§ç¹ã«æå¹ã§ãã
+        SPRã3ä»¥ä¸ã®å ´åãã¬ã³ã¸å¨ä½ã§å°ãããµã¤ãºï¼25ã33%ãããï¼ã®CBetãé«é »åº¦ã§æ­£å½åããã¾ãã
+        çç±ã¯ãããªãã­ãã3ããã¿ã¼ã®ã¬ã³ã¸ãå¼·ããç¸æã®ã³ã¼ã«å´ã®ã¬ã³ã¸ãã­ã£ããããã¦ããããã
+      </p>
+    </div>
+    <div class="strategy-block">
+      <div class="strategy-label">Exploitçè¦ç¹</div>
+      <p>
+        ãã ãã©ã¤ãã»ä½ãä¸­ã¬ã¼ãã§ã¯ãç¸æã3ããããããã§ãéãããããå¾åãããã¾ãã
+        ç¹ã«A-highãK-highã®ãã©ã¤ãã¼ãï¼ä¾ï¼Kâ 7â¦2â£ï¼ã§ã¯ã60ã75%ãããã®å¤§ããCBetã§ãã©ã¼ã«ãã¨ã¯ã¤ãã£ãæå¤§åã§ãã¾ãã
+        ç¸æããã­ããã§40%ä»¥ä¸ãã©ã¼ã«ããã¦ããå ´åãATCï¼Any Two Cardsï¼ã«è¿ãé »åº¦ã§CBetãå©ççã«ãªãã¾ãã
+      </p>
+    </div>
+    <div class="strategy-block">
+      <div class="strategy-label">ð¡ å·ä½ä¾</div>
+      <p>
+        <strong style="color:#fff;">ããªãï¼Aâ Qâ¥ï¼BTN 3bet â BB callï¼</strong><br>
+        ãã­ããï¼Kâ¦8â 3â£ï¼ããã: 22BBãæ®ãã¹ã¿ãã¯: 75BBï¼<br><br>
+        â SPR â 3.4ãAâ Qâ¥ã¯ããã¯ãã¢ã®ããããã©ãã·ã¥ãã­ã¼ã¨ãªã¼ãã¼ã«ã¼ããæã¡ãKãã¤ãã¼ãã¯3ããã¿ã¼ã¬ã³ã¸ã«æå©ã
+        ããã§ã¯ãããã®30%ï¼ç´7BBï¼ã®CBetãæ¨å¥¨ãç¸æãKxä»¥å¤ã§ã³ã¼ã«ãã«ããç¶æ³ãä½ããã¿ã¼ã³ä»¥éã®ãã¬ã«ãã©ã³ãç«ã¦ããããªãã¾ãã
+      </p>
+    </div>
+  </div>
+
+  <!-- ä»æ¥ã®ãã³ãã¯ã¤ãº -->
+  <div class="card">
+    <div class="card-title">
+      <span class="emoji">ð§ </span> ä»æ¥ã®ãã³ãã¯ã¤ãº
+    </div>
+    <div class="quiz-situation">
+      <strong style="color:#fff;">ç¶æ³ï¼</strong>ã©ã¤ã $2/$5 NLHãæå¹ã¹ã¿ãã¯ $500<br><br>
+      ããªãã¯BBã§ <strong style="color:#e8c44a;">9â¥8â¥</strong> ãæã£ã¦ãã¾ãã<br>
+      UTGã$15ã«ã¬ã¤ãºãMPã¨COãã³ã¼ã«ãããªããã³ã¼ã«ã<br>
+      <strong style="color:#fff;">ãã­ããï¼</strong> 7â 6â¦2â£ï¼ããã $62ï¼<br><br>
+      ããªãããã§ãã¯ãUTGã$30ããããMPãã©ã¼ã«ããCOã³ã¼ã«ã<br>
+      <strong style="color:#4a9fe8;">ããªãã®ã¢ã¯ã·ã§ã³ã¯ï¼</strong>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option"><strong>A.</strong> ãã©ã¼ã«ã â ã¬ããã·ã§ããã ãã§ã¯ç¶è¡ã§ããªã</div>
+      <div class="quiz-option correct"><strong>B.</strong> ã³ã¼ã« â ãªããºã¨ã¤ã³ãã©ã¤ããªããºã§ç¶è¡</div>
+      <div class="quiz-option"><strong>C.</strong> ãã§ãã¯ã¬ã¤ãº to $120 â ã»ããã©ãã§å¨å¡ãéããã«ãã</div>
+    </div>
+    <div class="quiz-answer">
+      <div class="quiz-answer-label">ð è§£èª¬ï¼æ­£è§£ï¼Bï¼</div>
+      <p>
+        9â¥8â¥ã¯OESDï¼ãªã¼ãã³ã¨ã³ãã¹ãã¬ã¼ããã­ã¼ï¼5ã10ã§å®æï¼ãæã¡ãç´31.5%ã®ã¨ã¯ã¤ãã£ãããã¾ãã
+        ããããªããºã¯$30 / ($62+$30+$30+$30) = ç´19.7%ã§ååã«ã³ã¼ã«ã§ãã¾ãã<br><br>
+        <strong style="color:#e8c44a;">ãªãAã§ã¯ãªããï¼</strong>OESDã¯8ã¢ã¦ãã§ãæ¬¡ã®ã«ã¼ãã§å®æããç¢ºçã¯ç´17%ããããã¿ã¼ã³+ãªãã¼ã§è¦ãã¨31.5%ãããããã«ã¹ãã¬ã¼ãå®ææã®ã¤ã³ãã©ã¤ããªããºãå¤§ããï¼ç¸æã®ãªã¼ãã¼ãã¢ããã¼ãã¢ããããªã¥ã¼ãåããï¼ã<br><br>
+        <strong style="color:#e8c44a;">ãªãCã§ã¯ãªããï¼</strong>ãã«ãã¦ã§ã¤ãããã§ã® ãã§ãã¯ã¬ã¤ãºã¯ãªã¹ã¯ãé«ããã¾ããUTGã®ã¬ã¤ãºï¼COã®ã³ã¼ã«ããããå°ãªãã¨ãä¸äººã¯å¼·ããã³ããæã£ã¦ããå¯è½æ§ãé«ããã¾ã$120ã¸ã®ã¬ã¤ãºå¾ã4ããããããå ´åã®ãã©ã³ãç«ã¦ã«ããããã©ã¼ã«ãã¨ã­ã¤ãã£ãéå®çã§ãã
+        ã³ã¼ã«ãã¦ãã¸ã·ã§ã³ã¬ã¹ã§ãã¤ã³ãã©ã¤ããªããºãæ´»ããã®ãæåã§ãã
+      </p>
+    </div>
+  </div>
+
+  <!-- ä»æ¥ã®ãã¤ã³ãã»åæ¯ç®¡ç -->
+  <div class="card">
+    <div class="card-title">
+      <span class="emoji">ð°</span> ä»æ¥ã®ãã¤ã³ãã»åæ¯ç®¡ç
+    </div>
+    <div class="mind-text">
+      <p>
+        <strong>ãã¼ãï¼ãçµæãã§ã¯ãªãããã­ã»ã¹ãã«éä¸­ãã</strong>
+      </p>
+      <br>
+      <p>
+        Triton Jejuã§æ¥æ¬äººãã¬ã¤ã¤ã¼ãå¤§ããªçµæãåºãã¾ããããå¤§äºãªã®ã¯ãè³éé¡ãã§ã¯ãªããæ­£ããå¤æ­ãç©ã¿éã­ããã­ã»ã¹ãã§ãã
+        ãã¼ã«ã¼ã¯ç­æçã«åæ£ï¼ããªã¢ã³ã¹ï¼ãå¤§ããã²ã¼ã ã1ã»ãã·ã§ã³ã®çµæã§èªåã®å®åãè©ä¾¡ããã¨ãåã£ãã¨ãã¯éä¿¡ããè² ããã¨ãã¯èªä¿¡ãå¤±ãã¾ãã
+      </p>
+      <br>
+      <p>
+        <strong>å®è·µãã¯ããã¯ï¼ã»ãã·ã§ã³å¾ã®3è¡ã¬ãã¥ã¼</strong><br>
+        æ¯ã»ãã·ã§ã³å¾ã«ä»¥ä¸ã®3ã¤ã ãè¨é²ãã¾ãããï¼
+      </p>
+      <br>
+      <p>
+        â  ä»æ¥æãè¯ãã£ãå¤æ­ã¯ä½ãï¼<br>
+        â¡ ä»æ¥æãæªãã£ãå¤æ­ã¯ä½ãï¼<br>
+        â¢ æ¬¡åæ¹åãã¹ããã¤ã³ãã¯ä½ãï¼
+      </p>
+      <br>
+      <p>
+        åæ¯ã®è¨é²ããããã®ãå¤æ­ã®è³ªãã®è¨é²ãé·æçãªæé·ã«ç´çµãã¾ãã
+        ææ«ã«æ¯ãè¿ãã¨ãèªåã®ãªã¼ã¯ï¼å¼±ç¹ï¼ãæç¢ºã«ãã¿ã¼ã³ã¨ãã¦æµ®ãã³ä¸ãã£ã¦ãã¾ãã
+      </p>
+      <br>
+      <p>
+        <strong>ãã³ã¯ã­ã¼ã«ç®¡çã®ç®å®ï¼</strong>ã©ã¤ãã­ã£ãã·ã¥ã²ã¼ã ãªãæä½20ãã¤ã¤ã³ããã¼ãã¡ã³ããªãæä½100ãã¤ã¤ã³åã®ãã³ã¯ã­ã¼ã«ãç¶­æãã¾ãããã
+        Tritonã®ãããªãã¤ã¹ãã¼ã¯ã¹ã«ææ¦ãããªãããµãã©ã¤ããæ´»ç¨ãã¦ãã³ã¯ã­ã¼ã«ãªã¹ã¯ãæå°åããã®ãè³¢æã§ãã
+      </p>
+    </div>
+  </div>
+
+  <!-- ä»æ¥ã®ä¸è¨ãã¼ã¿ -->
+  <div class="card">
+    <div class="card-title">
+      <span class="emoji">ð</span> ä»æ¥ã®ä¸è¨ãã¼ã¿
+    </div>
+    <div class="data-stat">
+      <div class="number">$2,000ä¸</div>
+      <div class="unit">ç´30åå</div>
+      <div class="desc">
+        Triton ONE Jeju 2026ã®ç·è³éãã¼ã«é¡ã<br>
+        ããã10æ¥éã®ãã§ã¹ãã£ãã«ã§çã¿åºããããã®éé¡ã¯ã<br>
+        ã¢ã¸ã¢åã®ãã¼ã«ã¼ã¤ãã³ãã¨ãã¦éå»æå¤§ç´ã®è¦æ¨¡ã§ãã<br>
+        æ¥æ¬äººãã¬ã¤ã¤ã¼ã ãã§ç´15ååä»¥ä¸ãç²å¾ãã¾ããã
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p><span class="brand">Poker Japan Daily</span> â æ¯ææ´æ°</p>
+    <p style="margin-top:8px; font-size:12px; color:#444;">Â© 2026 Poker Japan Daily. All rights reserved.</p>
+  </div>
+
+</div>
 </body>
 </html>
