@@ -3,6 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Japan Daily | 日本人プレイヤーのためのポーカーニュース</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #c0392b;
+            --accent-light: #fee2e2;
+            --accent-blue: #2563eb;
+            --accent-gold: #b8860b;
+            --primary: #1a1a2e;
+            --bg: #faf9f7;
+            --white: #ffffff;
+            --border: #e8e5e0;
+            --border-light: #f0eeeb;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --text-light: #9ca3af;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--white);
+            border-bottom: 3px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .header-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover { color: var(--accent); }
+
+        /* ===== HERO / TODAY ===== */
+        .today-hero {
+            background: var(--white);
+            padding: 48px 24px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .today-hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .today-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .today-label::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .today-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .today-main {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== NEWS CARDS ===== */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card-body { padding: 20px 24px; }
+
+        .card-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tag-result { background: #fef2f2; color: #b91c1c; }
+        .tag-upcoming { background: #fffbeb; color: #92400e; }
+        .tag-series { background: #f0fdf4; color: #166534; }
+        .tag-japan { background: #eff6ff; color: #1e40af; }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.55;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .today-main .card-title { font-size: 1.3rem; }
+
+        .card-excerpt {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ===== ARCHIVE SECTION ===== */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-title h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .section-title .icon { font-size: 1.2rem; }
+
+        /* Daily Archive */
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .archive-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .archive-item:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .archive-date {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+            min-width: 100px;
+        }
+
+        .archive-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--primary);
+            flex: 1;
+        }
+
+        .archive-badge {
+            font-size: 0.7rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Topic Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .article-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .article-card .card-tag { margin-bottom: 8px; }
+
+        .article-card-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.5;
+        }
+
+        /* ===== UPCOMING EVENTS ===== */
+        .events-bar {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .events-bar h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        .event-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .event-row:last-child { border-bottom: none; }
+
+        .event-date {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text);
+            min-width: 90px;
+        }
+
+        .event-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 36px 20px;
+            font-size: 0.8rem;
+        }
+
+        footer .suits {
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            opacity: 0.4;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .today-grid { grid-template-columns: 1fr; }
+            .articles-grid { grid-template-columns: 1fr 1fr; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .nav { gap: 16px; }
+            .logo { font-size: 1.3rem; }
+        }
+
+        @media (max-width: 500px) {
+            .articles-grid { grid-template-columns: 1fr; }
+            .archive-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">POKER JAPAN <span>DAILY</span></a>
+            <nav class="nav">
+                <a href="#today">今日のニュース</a>
+                <a href="#archive">過去の記事</a>
+                <a href="#articles">特集記事</a>
+            </nav>
+            <span class="header-date">2026年3月26日（木）</span>
+        </div>
+    </header>
+
+    <!-- TODAY'S NEWS -->
+    <section class="today-hero" id="today">
+        <div class="today-hero-inner">
+            <div class="today-label">Today's Poker News</div>
+
+            <div class="today-grid">
+                <!-- Main Story -->
+                <div class="card today-main">
+                    <a href="articles/daily/2026-03-26.html">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1609726494499-27d3e942571f?w=900&q=80" alt="PokerGO Cup 2026">
+                        <div class="card-body">
+                            <span class="card-tag tag-result">Tournament Result</span>
+                            <h3 class="card-title">PokerGO Cup 2026 完全決着 — Lichtenberger がメインイベント制覇、総合王者は Brock Wilson</h3>
+                            <p class="card-excerpt">3月中旬にラスベガスで開催された2026 PokerGO Cupが全日程を終了。メインイベント（$15,000 NLH）では Andrew "LuckyChewy" Lichtenberger がファイナルテーブルで全員をバストアウトし優勝。賞金 $257,400 と自身9度目のPGTタイトルを獲得した。シリーズ総合では Brock Wilson がリーダーボードを制した。</p>
+                            <div class="card-meta">2026年3月26日</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sub Story 1 -->
+                <div class="card">
+                    <a href="articles/daily/2026-03-26.html">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=600&q=80" alt="WSOP Europe Prague">
+                        <div class="card-body">
+                            <span class="card-tag tag-upcoming">Upcoming</span>
+                            <h3 class="card-title">WSOP Europe 2026、来週プラハで開幕 — €10M保証メインイベント</h3>
+                            <p class="card-excerpt">3月31日〜4月12日、チェコ・プラハの Hilton Prague にて15ブレスレットイベント開催。€5,300 MEは€10M保証。</p>
+                            <div class="card-meta">2026年3月26日</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sub Story 2 -->
+                <div class="card">
+                    <a href="articles/daily/2026-03-26.html">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=600&q=80" alt="DeepStack Showdown">
+                        <div class="card-body">
+                            <span class="card-tag tag-series">Series</span>
+                            <h3 class="card-title">Venetian DeepStack Showdown、$2.2M保証で3月末まで開催中</h3>
+                            <p class="card-excerpt">全51イベント、総保証賞金プール約$2,200,000のシリーズが佳境。ミドルステークスプレイヤーにも参加しやすい。</p>
+                            <div class="card-meta">2026年3月26日</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+
+        <!-- UPCOMING EVENTS -->
+        <div class="events-bar">
+            <h3>📅 今後の注目イベント</h3>
+            <div class="event-row">
+                <span class="event-date">3/31〜4/12</span>
+                <span class="event-desc">WSOP Europe 2026（プラハ、Hilton Prague）— 15ブレスレットイベント、€5,300 ME €10M GTD</span>
+            </div>
+            <div class="event-row">
+                <span class="event-date">〜3/31</span>
+                <span class="event-desc">Venetian DeepStack Showdown 最終週（ラスベガス）</span>
+            </div>
+            <div class="event-row">
+                <span class="event-date">2026前半</span>
+                <span class="event-desc">Triton Poker Super High Roller Series — 済州＆モンテネグロ</span>
+            </div>
+            <div class="event-row">
+                <span class="event-date">開催中</span>
+                <span class="event-desc">JOPT オンラインサテライト（POKER+ にて）</span>
+            </div>
+        </div>
+
+        <!-- DAILY ARCHIVE -->
+        <div class="section-title" id="archive">
+            <span class="icon">📂</span>
+            <h2>デイリーニュース アーカイブ</h2>
+        </div>
+
+        <div class="archive-list">
+            <a href="articles/daily/2026-03-26.html" class="archive-item">
+                <span class="archive-date">2026/03/26</span>
+                <span class="archive-title">PokerGO Cup 2026完全決着 / WSOP Europe来週開幕 / DeepStack Showdown佳境</span>
+                <span class="archive-badge">最新</span>
+            </a>
+            <!-- 過去の記事が自動的にここに追加されます -->
+        </div>
+
+        <!-- TOPIC ARTICLES -->
+        <div class="section-title" id="articles">
+            <span class="icon">📑</span>
+            <h2>特集記事</h2>
+        </div>
+
+        <div class="articles-grid">
+            <a href="articles/jun-obara-triton-jeju-champion.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">小原順、Triton済州で歴史的5冠達成</div>
+            </a>
+            <a href="articles/kihara-wsop-pioneer.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">木原直哉 — WSOP優勝の先駆者</div>
+            </a>
+            <a href="articles/yokosawa-2025-career-year.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">横澤真人、2025年キャリアイヤー</div>
+            </a>
+            <a href="articles/kanaizumi-triton-one-jeju.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">金泉遼、Triton ONE済州の衝撃</div>
+            </a>
+            <a href="articles/sakaki-triton-one-female.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">榊原はづき、女性プレイヤーの躍進</div>
+            </a>
+            <a href="articles/okamoto-wsop-ept-2025.html" class="article-card">
+                <span class="card-tag tag-japan">日本人</span>
+                <div class="article-card-title">岡本浩明、WSOP & EPT 2025</div>
+            </a>
+            <a href="articles/seki-jopt-2025-tokyo.html" class="article-card">
+                <span class="card-tag tag-result">大会</span>
+                <div class="article-card-title">関 勇磨、JOPT 2025 東京制覇</div>
+            </a>
+            <a href="articles/jopt-2025-record-64-events.html" class="article-card">
+                <span class="card-tag tag-result">大会</span>
+                <div class="article-card-title">JOPT 2025：過去最大64イベント</div>
+            </a>
+            <a href="articles/jopt-2026-tokyo-01.html" class="article-card">
+                <span class="card-tag tag-upcoming">予定</span>
+                <div class="article-card-title">JOPT 2026 TOKYO #01 開催</div>
+            </a>
+            <a href="articles/triton-one-jeju-record.html" class="article-card">
+                <span class="card-tag tag-result">大会</span>
+                <div class="article-card-title">Triton ONE済州：記録的大会</div>
+            </a>
+            <a href="articles/ajpc-championship-2025.html" class="article-card">
+                <span class="card-tag tag-result">大会</span>
+                <div class="article-card-title">AJPC選手権2025</div>
+            </a>
+            <a href="articles/wpt-prime-tokyo-2026.html" class="article-card">
+                <span class="card-tag tag-upcoming">予定</span>
+                <div class="article-card-title">WPT Prime Tokyo 2026</div>
+            </a>
+            <a href="articles/nippon-series-go-2026.html" class="article-card">
+                <span class="card-tag tag-series">シリーズ</span>
+                <div class="article-card-title">Nippon Series GO 2026</div>
+            </a>
+            <a href="articles/p1-grand-prix-osaka-2026.html" class="article-card">
+                <span class="card-tag tag-upcoming">予定</span>
+                <div class="article-card-title">P1 Grand Prix 大阪 2026</div>
+            </a>
+            <a href="articles/ggpoker-japan-platform.html" class="article-card">
+                <span class="card-tag tag-series">業界</span>
+                <div class="article-card-title">GGPoker Japan プラットフォーム</div>
+            </a>
+            <a href="articles/mgm-osaka-casino-resort.html" class="article-card">
+                <span class="card-tag tag-series">業界</span>
+                <div class="article-card-title">MGM大阪カジノリゾート最新動向</div>
+            </a>
+            <a href="articles/jpba-guidelines-2026.html" class="article-card">
+                <span class="card-tag tag-series">業界</span>
+                <div class="article-card-title">JPBA 2026年ガイドライン</div>
+            </a>
+            <a href="articles/npa-online-gambling-crackdown.html" class="article-card">
+                <span class="card-tag tag-series">規制</span>
+                <div class="article-card-title">警察庁オンラインギャンブル規制強化</div>
+            </a>
+            <a href="articles/online-gambling-ad-ban.html" class="article-card">
+                <span class="card-tag tag-series">規制</span>
+                <div class="article-card-title">オンラインギャンブル広告規制</div>
+            </a>
+            <a href="articles/police-raid-amusement-casinos.html" class="article-card">
+                <span class="card-tag tag-series">規制</span>
+                <div class="article-card-title">アミューズメントカジノ摘発動向</div>
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="suits">♠ ♥ ♦ ♣</div>
+        <p>Poker Japan Daily — 日本人プレイヤーのためのポーカーインテリジェンス</p>
+        <p style="margin-top: 6px;">© 2026 Poker Japan Daily. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poker Japan Daily - 2026年3月26日</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
