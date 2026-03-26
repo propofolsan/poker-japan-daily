@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Japan Daily - 2026年3月26日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c0392b;
+            --accent-blue: #2563eb;
+            --accent-gold: #b8860b;
+            --bg: #ffffff;
+            --bg-warm: #faf9f7;
+            --card-bg: #ffffff;
+            --card-border: #e8e5e0;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background: var(--bg-warm);
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .top-bar a:hover { color: #fff; }
+
+        .hero {
+            background: #fff;
+            border-bottom: 3px solid var(--accent);
+            padding: 40px 20px 32px;
+            text-align: center;
+        }
+
+        .hero .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 3px;
+        }
+
+        .hero .logo span { color: var(--accent); }
+
+        .hero .date {
+            margin-top: 12px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .section-header .icon { font-size: 1.3rem; }
+
+        .section-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .news-card .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .tag-tournament { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+        .tag-upcoming { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+        .tag-series { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+        .news-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .news-card .highlight { color: var(--accent); font-weight: 600; }
+        .news-card .gold { color: var(--accent-gold); font-weight: 700; }
+
+        .news-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.85rem;
+        }
+
+        .result-table th {
+            background: #f8f7f5;
+            color: var(--accent);
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .result-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f0eeeb;
+            color: var(--text-muted);
+        }
+
+        .preview-section {
+            background: #fffbf5;
+            border: 1px solid #f0e6d3;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .preview-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .preview-item .bullet { color: var(--accent); font-size: 1.1rem; line-height: 1.7; }
+
+        .preview-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .preview-item strong { color: var(--text); }
+
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--card-border);
+            background: #fff;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero .logo { font-size: 1.6rem; }
+            .news-card { padding: 20px; }
+            .container { padding: 24px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="../../index.html">← トップページに戻る</a>
+    </div>
+
+    <header class="hero">
+        <div class="logo">POKER JAPAN <span>DAILY</span></div>
+        <div class="date">2026年3月26日（木）</div>
+    </header>
+
+    <main class="container">
+
+        <a href="../../index.html" class="back-link">← 記事一覧に戻る</a>
+
+        <div class="section-header">
+            <span class="icon">📰</span>
+            <h2>今日のポーカーニュース</h2>
+        </div>
+
+        <!-- ニュース1: PokerGO Cup -->
+        <article class="news-card">
+            <span class="tag tag-tournament">Tournament Result</span>
+            <img src="https://images.unsplash.com/photo-1609726494499-27d3e942571f?w=800&q=80" alt="PokerGO Cup 2026">
+            <h3>PokerGO Cup 2026 完全決着 — Lichtenberger がメインイベント制覇、総合王者は Brock Wilson</h3>
+            <p>
+                3月中旬にラスベガスで開催された<span class="highlight">2026 PokerGO Cup</span>が全日程を終了した。メインイベント（$15,000 NLH、参加者52名）では、<span class="highlight">Andrew "LuckyChewy" Lichtenberger</span> がファイナルテーブルで全員をバストアウトする圧巻のパフォーマンスで優勝。賞金 <span class="gold">$257,400</span> と自身9度目のPGTタイトルを獲得した。決勝ハンドではSoverelのK-Jに対しA-10でコール、フロップでテンヒット、リバーでエースを引き完勝。
+            </p>
+            <p>
+                シリーズ総合では<span class="highlight">Brock Wilson</span> がリーダーボードを制し、PokerGO Cupトロフィーと $25,000 PGTパスポートを手にした。
+            </p>
+            <table class="result-table">
+                <tr><th>イベント</th><th>優勝者</th><th>賞金</th></tr>
+                <tr><td>Event #7 ($10K NLH)</td><td>Tony Gregg</td><td>$173,075</td></tr>
+                <tr><td>Event #9</td><td>Sean Winter</td><td>$210,000</td></tr>
+                <tr><td>Event #10 Main Event</td><td>A. Lichtenberger</td><td>$257,400</td></tr>
+                <tr><td>シリーズ総合</td><td>Brock Wilson</td><td>トロフィー + $25K PGT Passport</td></tr>
+            </table>
+            <p>
+                注目すべきは<span class="highlight">Tony Gregg</span>の復活。2013年のWSOPワンドロップ・ハイローラー優勝以来、一線を退いていた同氏がEvent #7で初のPGTタイトルを獲得。また<span class="highlight">Sean Winter</span>は Event #9 で通算8度目のPGTタイトルを達成している。
+            </p>
+        </article>
+
+        <!-- ニュース2: WSOP Europe -->
+        <article class="news-card">
+            <span class="tag tag-upcoming">Upcoming</span>
+            <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80" alt="WSOP Europe Prague 2026">
+            <h3>WSOP Europe 2026、来週プラハで開幕 — €10M保証メインイベントに注目</h3>
+            <p>
+                <span class="highlight">WSOP Europe 2026</span> が <span class="gold">3月31日〜4月12日</span> の日程でチェコ・プラハの Hilton Prague にて開催される。King's Casino Prague との提携による今年の WSOPE は、全 <span class="highlight">15ブレスレットイベント</span> を実施。
+            </p>
+            <p>
+                目玉は €5,300 バイインのメインイベント。保証賞金プールは <span class="gold">€10,000,000（約16.5億円）</span> と大幅に増額された。今年から導入された<span class="highlight">WSOPグローバル・プレイヤーオブザイヤー</span>レースでは、プラハ（WSOPE）、夏のラスベガス（WSOP）、バハマ（WSOP Paradise）の3大会を統合した「トリプルクラウン」スタイルのシーズンが展開される。年間ポイント王には賞金 $1,000,000 が贈られる。
+            </p>
+        </article>
+
+        <!-- ニュース3: DeepStack Showdown -->
+        <article class="news-card">
+            <span class="tag tag-series">Series</span>
+            <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=800&q=80" alt="Venetian DeepStack Showdown">
+            <h3>Venetian DeepStack Showdown、$2.2M保証で3月末まで開催中</h3>
+            <p>
+                ラスベガス・ザ ヴェネチアンで開催中の <span class="highlight">DeepStack Showdown</span>（2月25日〜3月31日）が佳境を迎えている。全51イベント、総保証賞金プール <span class="gold">約$2,200,000</span> のシリーズは、$800 NLH（$500K保証）、$1,600 NLH（$500K保証）など、ミドルステークスプレイヤーにも参加しやすいラインナップが揃う。
+            </p>
+        </article>
+
+        <!-- 今後の注目 -->
+        <div class="section-header" style="margin-top: 36px;">
+            <span class="icon">🔭</span>
+            <h2>今後の注目イベント</h2>
+        </div>
+
+        <div class="preview-section">
+            <h3>今週〜来月のポーカーカレンダー</h3>
+            <div class="preview-item">
+                <span class="bullet">♠</span>
+                <p><strong>3/31〜4/12</strong> — WSOP Europe 2026（プラハ、Hilton Prague）。15ブレスレットイベント、€5,300 ME €10M GTD。</p>
+            </div>
+            <div class="preview-item">
+                <span class="bullet">♥</span>
+                <p><strong>〜3/31</strong> — Venetian DeepStack Showdown 最終週（ラスベガス）。</p>
+            </div>
+            <div class="preview-item">
+                <span class="bullet">♦</span>
+                <p><strong>2026年前半</strong> — Triton Poker Super High Roller Series が済州およびモンテネグロで予定。</p>
+            </div>
+            <div class="preview-item">
+                <span class="bullet">♣</span>
+                <p><strong>国内</strong> — JOPT のオンラインサテライトが POKER+ で開催中。</p>
+            </div>
+        </div>
+
+        <!-- 日本人プレイヤー -->
+        <div class="section-header" style="margin-top: 36px;">
+            <span class="icon">🇯🇵</span>
+            <h2>日本人プレイヤー動向</h2>
+        </div>
+
+        <article class="news-card">
+            <h3>2026年の日本人プレイヤー — WSOPE プラハに期待</h3>
+            <p>
+                2025年に歴史的な活躍を見せた日本人プレイヤーたち。<span class="highlight">小原 順（みさわ）</span>はトリトン・済州シリーズで5度の入賞・優勝を果たし合計 <span class="gold">$2,229,000 以上</span> を獲得、WSOP では4位で $879,939 を手にした。2026年は来週の <span class="highlight">WSOP Europe プラハ</span> が最初の大舞台。€5,300のメインイベントは日本人プレイヤーにとっても参加しやすい設定であり、ブレスレット獲得の期待がかかる。
+            </p>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>Poker Japan Daily — 日本人プレイヤーのためのポーカーインテリジェンス</p>
+        <p style="margin-top: 6px;">© 2026 Poker Japan Daily. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
