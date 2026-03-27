@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Japan Daily - 2026年3月27日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c0392b;
+            --accent-blue: #2563eb;
+            --accent-gold: #b8860b;
+            --bg: #ffffff;
+            --bg-warm: #faf9f7;
+            --card-bg: #ffffff;
+            --card-border: #e8e5e0;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background: var(--bg-warm);
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .top-bar a:hover { color: #fff; }
+
+        .hero {
+            background: #fff;
+            border-bottom: 3px solid var(--accent);
+            padding: 40px 20px 32px;
+            text-align: center;
+        }
+
+        .hero .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 3px;
+        }
+
+        .hero .logo span { color: var(--accent); }
+
+        .hero .date {
+            margin-top: 12px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 36px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            margin-bottom: 28px;
+            border-bottom: 2px solid var(--card-border);
+        }
+        .tab-nav a {
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin-bottom: -2px;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .tab-nav a.active {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+        }
+        .tab-nav a:not(.active) {
+            color: var(--text-muted);
+            border-bottom: 3px solid transparent;
+        }
+        .tab-nav a:hover:not(.active) {
+            color: var(--text);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .section-header .icon { font-size: 1.3rem; }
+
+        .section-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .news-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .news-card .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .tag-tournament { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+        .tag-upcoming { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+        .tag-series { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+        .tag-japan { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+        .tag-online { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+        .tag-analysis { background: #fdf4ff; color: #a21caf; border: 1px solid #f0abfc; }
+        .tag-player { background: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+
+        .news-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .news-card .highlight { color: var(--accent); font-weight: 600; }
+        .news-card .gold { color: var(--accent-gold); font-weight: 700; }
+
+        .news-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.85rem;
+        }
+
+        .result-table th {
+            background: #f8f7f5;
+            color: var(--accent);
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .result-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f0eeeb;
+            color: var(--text-muted);
+        }
+
+        .result-table tr:hover td {
+            background: #faf9f7;
+        }
+
+        .preview-section {
+            background: #fffbf5;
+            border: 1px solid #f0e6d3;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .preview-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .preview-item .bullet { color: var(--accent); font-size: 1.1rem; line-height: 1.7; }
+
+        .preview-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .preview-item strong { color: var(--text); }
+
+        .sub-heading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0 10px;
+            padding-left: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .quote-box {
+            background: #f8f7f5;
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-box p {
+            font-style: italic;
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .stat-card {
+            background: #f8f7f5;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-card .stat-number {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--card-border);
+            margin: 36px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid var(--card-border);
+            background: #fff;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero .logo { font-size: 1.6rem; }
+            .news-card { padding: 20px; }
+            .container { padding: 24px 16px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="../../index.html">← トップページに戻る</a>
+    </div>
+
+    <header class="hero">
+        <div class="logo">POKER JAPAN <span>DAILY</span></div>
+        <div class="date">2026年3月27日（金）</div>
+    </header>
+
+    <main class="container">
+
+        <a href="../../index.html" class="back-link">← 記事一覧に戻る</a>
+
+        <!-- ナビゲーションタブ -->
+        <div class="tab-nav">
+            <a href="#international" class="active" onclick="switchTab('international')">🌍 海外ニュース</a>
+            <a href="#domestic" onclick="switchTab('domestic')">🇯🇵 国内ニュース</a>
+        </div>
+
+        <!-- ===== 海外ニュースセクション ===== -->
+        <div id="international" class="tab-content active">
+
+        <div class="section-header">
+            <span class="icon">🌍</span>
+            <h2>海外トーナメントニュース</h2>
+        </div>
+
+        <!-- ニュース1: Triton Main Event -->
+        <article class="news-card">
+            <span class="tag tag-tournament">Tournament Result</span>
+            <img src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=800&q=80" alt="Triton Poker Jeju">
+            <h3>【速報】Ben Tollerene、Triton Jeju $100K メインイベント優勝 — $3,766,000獲得。Kristen Foxenはキャリアベスト4位</h3>
+
+            <p>
+                韔国・済州島のLes A Casinoで開催中の<span class="highlight">Triton Super High Roller Series Jeju 2026</span>のメインイベント（$100,000 NLH）が3月26日に決着した。優勝したのは<span class="highlight">Ben Tollerene</span>で、賞金 <span class="gold">$3,766,000</span> を獲得。Tollereneにとっては2度目のTritonメインイベント制覇となり、スーパーハイローラーシーンでの確固たる地位を改めて示した。
+            </p>
+
+            <div class="sub-heading">Kristen Foxenの歴史的なキャリアベスト</div>
+
+            <p>
+                今大会で最も注目を集めたストーリーの一つが、<span class="highlight">Kristen Foxen</span>の4位入賞（<span class="gold">$1,450,000</span>）だ。これは彼女にとってキャリアベストのキャッシュとなり、通算トーナメント獲得賞金は$14,935,462に到達した。Foxenは昨年9月のTriton Jeju $125K NLHイベントでの3位に続く好成績で、Tritonシリーズとの相性の良さを示している。
+            </p>
+
+            <p>
+                ファイナルテーブルではFoxenが<strong>ポケットキングをプリフロップでフォールド</strong>するという驚愕のプレイを見せ、ポーカーコミュニティで大きな話題となった。スーパーハイローラー特有のICMプレッシャーと卓上リードを高度に組み合わせた判断であり、世界最高レベルの技術が凝縮された一手だった。
+            </p>
+
+            <div class="sub-heading">ファイナルテーブル結果</div>
+
+            <table class="result-table">
+                <tr><th>順位</th><th>プレイヤー</th><th>国</th><th>賞金</th></tr>
+                <tr><td>🥇 1位</td><td>Ben Tollerene</td><td>アメリカ</td><td>$3,766,000</td></tr>
+                <tr><td>🥈 2位</td><td>Philip Sternheimer</td><td>イギリス</td><td>$2,580,000</td></tr>
+                <tr><td>🥉 3位</td><td>Elton Tsang</td><td>香港</td><td>$1,890,000</td></tr>
+                <tr><td>4位</td><td>Kristen Foxen</td><td>カナダ</td><td>$1,450,000</td></tr>
+            </table>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- ニュース2: Triton SHR Series まとめ -->
+        <article class="news-card">
+            <span class="tag tag-series">Series Recap</span>
+            <h3>Triton Jeju 2026 シリーズ途中経過 — Bernhard Binderが$125K制覇、中国勢が2冠を獲得</h3>
+
+            <p>
+                3月14日から4月1日まで済州島で開催されているTriton Super High Roller Seriesは、3月27日現在で複数のイベントが決着している。シリーズ全体のハイライトをまとめる。
+            </p>
+
+            <div class="sub-heading">$125,000 NLH 7-Handed</div>
+            <p>
+                <span class="highlight">Bernhard Binder</span>（オーストリア）が初のTritonタイトルを獲得。賞金は <span class="gold">$2,137,953</span>。Binderは昨年のWSOPパラダイスでの優勝に続く大型タイトルで、2026年の最もホットなプレイヤーの一人として注目されている。
+            </p>
+
+            <div class="sub-heading">中国勢の躍進</div>
+            <p>
+                <span class="highlight">Quan Zhou</span>が$25,000 NLHイベントで優勝し <span class="gold">$1,303,000</span> を獲得。さらに<span class="highlight">Mingcong Chen</span>が$30,000 PLO/NLH Mixedイベントで初のTritonトロフィーを手にし、7桁の賞金を獲得した。中国本土勢の台頭がアジアのハイステークスシーンを大きく塗り替えつつある。
+            </p>
+
+            <div class="sub-heading">主要イベント結果一覧</div>
+
+            <table class="result-table">
+                <tr><th>イベント</th><th>優勝者</th><th>賞金</th></tr>
+                <tr><td>$15,000 High Roller</td><td>Austin Yang</td><td>$932,000</td></tr>
+                <tr><td>$25,000 NLH</td><td>Quan Zhou</td><td>$1,303,000</td></tr>
+                <tr><td>$30,000 Mixed</td><td>Mingcong Chen</td><td>7桁（詳細確認中）</td></tr>
+                <tr><td>$125,000 NLH 7-H</td><td>Bernhard Binder</td><td>$2,137,953</td></tr>
+                <tr><td>$100,000 NLH ME</td><td>Ben Tollerene</td><td>$3,766,000</td></tr>
+            </table>
+
+            <p>
+                シリーズは4月1日まで継続中で、$100,000 PLOメインイベントや$150,000 NLHイベントなど、ビッグバイインのイベントがまだ残されている。
+            </p>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- ニュース3: PokerGO Cup 2026 完全レビュー -->
+        <article class="news-card">
+            <span class="tag tag-tournament">Tournament Result</span>
+            <img src="https://images.unsplash.com/photo-1609726494499-27d3e942571f?w=800&q=80" alt="PokerGO Cup 2026">
+            <h3>【完全レビュー】PokerGO Cup 2026 全10イベント決着 — Lichtenberger がメインイベント制覇、Brock Wilson が僅差で総合王者に</h3>
+
+            <p>
+                3月1日から16日にかけてラスベガスで開催された<span class="highlight">2026 PokerGO Cup</span>が、全10イベントの日程を終了した。シリーズチャンピオンの栄冠を手にしたのは <span class="highlight">Brock Wilson</span>（467ポイント）で、2位の <span class="highlight">Filipp Khavin</span>（443ポイント）をわずか24ポイント差で振り切った。
+            </p>
+
+            <div class="sub-heading">メインイベント：Lichtenbergerの圧巻パフォーマンス</div>
+
+            <p>
+                Event #10メインイベント（$15,000 NLH、参加52名）では、<span class="highlight">Andrew "LuckyChewy" Lichtenberger</span>がファイナルテーブルの6人全員をバストアウトするという圧巻のパフォーマンスで、賞金 <span class="gold">$257,400</span> と自身通算9度目のPGTタイトルを獲得。この勝利で彼のライブトーナメント通算獲得賞金は$10,000,000を突破した。
+            </p>
+
+            <div class="sub-heading">Brock Wilson：一貫性の王者</div>
+            <p>
+                Wilsonはシリーズ期間中にEvent #4とEvent #6で優勝し、計4回のキャッシュで <span class="gold">$390,220</span> を獲得。10イベント中4回キャッシュ、2回優勝、1回ファイナルテーブルという圧倒的な安定感でシリーズトロフィーと$25,000 PGTパスポートを勝ち取った。
+            </p>
+
+            <div class="sub-heading">PGTリーダーボード上位</div>
+
+            <table class="result-table">
+                <tr><th>順位</th><th>プレイヤー</th><th>ポイント</th></tr>
+                <tr><td>1</td><td>Brock Wilson</td><td>467</td></tr>
+                <tr><td>2</td><td>Filipp Khavin</td><td>443</td></tr>
+                <tr><td>3</td><td>Sean Winter</td><td>347</td></tr>
+                <tr><td>4</td><td>Myles Mullaly</td><td>335</td></tr>
+                <tr><td>5</td><td>Andrew Lichtenberger</td><td>301</td></tr>
+            </table>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- ニュース4: Marrakech Poker Open -->
+        <article class="news-card">
+            <span class="tag tag-series">Now Playing</span>
+            <h3>🇲🇦 Marrakech Poker Open 第67回大会が開幕 — メインイベントDay 1進行中</h3>
+            <p>
+                モロッコ・マラケシュで<span class="highlight">第67回 Marrakech Poker Open</span>が開幕した。メインイベント（15,000 MADバイイン）は3月27日にDay 1bがスタートし、続いてターボフライトのDay 1cが同日夜に開催される。昨年のチャンピオン Tristan Forge は229名の参加者フィールドから勝ち上がり、500,000 MAD（約€47,645）を獲得しており、今年の大会規模のさらなる拡大が期待されている。
+            </p>
+        </article>
+
+        </div><!-- /international -->
+
+        <!-- ===== 国内ニュースセクション ===== -->
+        <div id="domestic" class="tab-content">
+
+        <div class="section-header">
+            <span class="icon">🇯🇵</span>
+            <h2>国内ニュース</h2>
+        </div>
+
+        <!-- 国内1: Yuna Kanaizumi -->
+        <article class="news-card">
+            <span class="tag tag-japan">日本人プレイヤー</span>
+            <h3>🎉 金泉優奈（Yuna Kanaizumi）、Triton ONE $5K ミステリーバウンティ優勝 — $462,500を獲得し国際舞台で快挙</h3>
+
+            <p>
+                済州島で3月5日〜15日に開催された<span class="highlight">Triton ONE Jeju 2026</span>の$5,000 ミステリーバウンティイベントで、<span class="highlight">金泉優奈（Yuna Kanaizumi）</span>が優勝し、賞金 <span class="gold">$462,500</span> を獲得した。これは金泉にとって初のメジャー国際タイトルであり、日本の女性プレイヤーがTritonシリーズのイベントで優勝するのは史上初の快挙だ。
+            </p>
+
+            <p>
+                決勝ではベトナムの<span class="highlight">Thi Xoa Nguyen</span>を下してのヘッズアップ勝利。金泉はTriton ONE「Player ONE」レースでも7位にランクインし、シリーズ全体を通じて安定した成績を残した。金泉は国内JOPTイベントで複数回の好成績を残してきた実力者で、今回のTriton優勝によりAPT年間ランキングでも大幅にポイントを上積みしている。
+            </p>
+
+            <div class="quote-box">
+                <p>「Tritonの舞台で優勝できるとは思っていませんでした。日本の女性プレイヤーにとって新しい扉を開けたと感じています。次はTriton SHRのテーブルを目指したい」——金泉優奈</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$462,500</div>
+                    <div class="stat-label">獲得賞金</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1st</div>
+                    <div class="stat-label">国際タイトル</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7th</div>
+                    <div class="stat-label">Player ONEレース</div>
+                </div>
+            </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- 国内2: JOPT Grand Final -->
+        <article class="news-card">
+            <span class="tag tag-upcoming">注目イベント</span>
+            <h3>JOPT 2026 Grand Final（4/24〜5/6・東京）の全貌が明らかに — 80+イベント、国際スポンサーシップ総額$1,000,000超</h3>
+
+            <p>
+                <span class="highlight">JOPT（Japan Open Poker Tour）2026 Grand Final</span>が4月24日から5月6日にかけて東京で開催されることが正式発表された。13日間にわたるシリーズには80以上のイベントが予定されており、国際スポンサーシップの総額は <span class="gold">$1,000,000 USD超</span> と、JOPT史上最大規模のグランドファイナルとなる見込みだ。
+            </p>
+
+            <p>
+                JOPTは日本の法規制に則り、上位入賞者にはキャッシュ賞金ではなく「プレイヤーコントラクト」が提供される。これは海外メジャートーナメントへのエントリーフィーや渡航費をスポンサーが補助する仕組みで、今年はWSOPラスベガス、APTマニラ、Tritonシリーズなどへの遠征パッケージが用意されている。
+            </p>
+
+            <div class="sub-heading">2026年残りのJOPTスケジュール</div>
+
+            <table class="result-table">
+                <tr><th>大会名</th><th>日程</th><th>会場</th></tr>
+                <tr><td>Grand Final</td><td>4/24 〜 5/6</td><td>東京</td></tr>
+                <tr><td>Tokyo #02</td><td>7/16 〜 7/20</td><td>東京</td></tr>
+                <tr><td>Osaka #02</td><td>10/29 〜 11/3</td><td>大阪</td></tr>
+            </table>
+
+            <p>
+                今年のJOPTは、Sapporo #01（2月）、Osaka #01（3月）を経て、Grand Finalに向けてポイントレースが加速している。Grand Finalのメインイベントには国内外から500名以上のエントリーが見込まれており、日本のポーカーシーン史上最大の大会となる可能性がある。
+            </p>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- 国内3: WSOP 2026 日本人遠征 -->
+        <article class="news-card">
+            <span class="tag tag-analysis">分析</span>
+            <h3>WSOP 2026展望 — 日本人プレイヤー40名超が参戦予定。過去最多規模の日本勢ラスベガス遠征へ</h3>
+
+            <p>
+                今年5月28日からラスベガスのホースシュー・カジノで開幕する<span class="highlight">WSOP 2026</span>に、日本から過去最多となる40名以上のプレイヤーが参戦を予定していることが判明した。昨年のWSOPではMain Eventに17名の日本人が参加し、うち佐藤健太（28位・$32,000）と中村リョウ（43位・$18,500）がマネーフィニッシュを果たしている。
+            </p>
+
+            <p>
+                今年は$1,000〜$3,000レンジのサイドイベントへの参戦が増加しる見込みで、JOPTとAPTのパートナーシップによる「遠征サポートプログラム」も初めて提供される。費用の一部をスポンサーが補助する制度で、若手プレイヤーの海外挑戦を後押しする画期的な取り組みとなっている。
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">参戦予定者数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5/28</div>
+                    <div class="stat-label">WSOP開幕日</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7/14</div>
+                    <div class="stat-label">WSOP最終日</div>
+                </div>
+            </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- 国内4: Triton ONE 結果まとめ -->
+        <article class="news-card">
+            <span class="tag tag-tournament">大会結果</span>
+            <h3>Triton ONE Jeju 2026 完全まとめ — 日本勢の活躍とアジアポーカーシーンの変革</h3>
+
+            <p>
+                3月5日〜15日に済州島で開催された<span class="highlight">Triton ONE Jeju 2026</span>は、従来のスーパーハイローラー路線とは異なる、より幅広いプレイヤーがアクセス可能なバイインレンジのイベントシリーズだ。メインイベントには1,230名がエントリーし、Zhao Wenjieが優勝。$3,000 QQPK Genesisは1,236名のエントリーでNguyen Huu Dungが$586,000を獲得した。
+            </p>
+
+            <p>
+                日本人プレイヤーの注目すべき成績として、金泉優奈の$5K ミステリーバウンティ優勝のほか、複数の日本人プレイヤーがキャッシュフィニッシュを達成。ベトナム勢の<span class="highlight">Ngo Khoa Anh</span>がTriton ONE史上初のダブルチャンピオン（$10K 7-Handed優勝、$612,000）となるなど、東南アジアからの新勢力の台頭も顕著だった。
+            </p>
+
+            <div class="sub-heading">Triton ONE 主要イベント結果</div>
+
+            <table class="result-table">
+                <tr><th>イベント</th><th>優勝者</th><th>国</th><th>賞金</th></tr>
+                <tr><td>$3K QQPK Genesis</td><td>Nguyen Huu Dung</td><td>ベトナム</td><td>$586,000</td></tr>
+                <tr><td>$5K ミステリーバウンティ</td><td>金泉優奈</td><td>日本 🇯🇵</td><td>$462,500</td></tr>
+                <tr><td>$10K 7-Handed</td><td>Ngo Khoa Anh</td><td>ベトナム</td><td>$612,000</td></tr>
+                <tr><td>$15K High Roller</td><td>Austin Yang</td><td>台湾</td><td>$932,000</td></tr>
+                <tr><td>Main Event</td><td>Zhao Wenjie</td><td>中国</td><td>（詳細確認中）</td></tr>
+            </table>
+        </article>
+
+        <!-- 国内イベントプレビュー -->
+        <div class="preview-section">
+            <h3>📅 今後の国内主要イベント</h3>
+            <div class="preview-item">
+                <span class="bullet">♠️</span>
+                <p><strong>JOPT Grand Final</strong>（4/24〜5/6・東京）— 80+イベント、JOPT史上最大のグランドファイナル。メインイベントは500名超の参加が見込まれる。</p>
+            </div>
+            <div class="preview-item">
+                <span class="bullet">♠️</span>
+                <p><strong>P1 GRAND PRIX Tokyo</strong>（4/12〜4/15・六本木ヒルズ）— 都心型のプレミアムポーカーイベント。</p>
+            </div>
+            <div class="preview-item">
+                <span class="bullet">♠️</span>
+                <p><strong>APT Tokyo Main Event</strong>（4/20〜4/24・お台場）— アジア・ポーカー・ツアーの東京開催。国際色豊かなフィールドが予想される。</p>
+            </div>
+        </div>
+
+        <!-- Triton SHR 進行中 -->
+        <div class="preview-section" style="background: #f0f7ff; border-color: #bfdbfe;">
+            <h3 style="color: var(--accent-blue);">🏟️ 現在進行中：Triton SHR 済州</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                Triton Super High Roller Series 済州は3月14日〜4月1日の日程で進行中。$20,000〜$150,000バイインの残りイベントが予定されており、$100,000 PLOメインイベント（3/29-31）、$150,000 NLHイベントなど、シリーズ後半のビッグイベントにも注目。結果は判明次第、本サイトで速報をお届けする。
+            </p>
+        </div>
+
+        </div><!-- /domestic -->
+
+    </main>
+
+    <footer>
+        <p>Poker Japan Daily — 日本人プレイヤーのためのポーカーインテリジェンス</p>
+        <p style="margin-top: 6px;">© 2026 Poker Japan Daily. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-nav a').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        document.querySelector('.tab-nav a[href="#' + tabId + '"]').classList.add('active');
+    }
+
+    // Handle hash navigation
+    if (window.location.hash === '#domestic') {
+        switchTab('domestic');
+    }
+    </script>
+
+</body>
+</html>
