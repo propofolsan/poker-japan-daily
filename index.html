@@ -849,7 +849,39 @@ a { color: inherit; text-decoration: none; }
   .featured-title { font-size: 1.15rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 }
-</style>
+
+/* ─── CLICKABLE CARDS ─── */
+.featured-card, .article-card, .tourn-card, .abroad-card, .regulation-card {
+    position: relative;
+    cursor: pointer;
+}
+.card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+.featured-card .read-more,
+.article-card .read-more,
+.tourn-card .read-more,
+.abroad-card .read-more,
+.regulation-card .read-more {
+    position: relative;
+    z-index: 2;
+}
+.article-card:hover .article-title,
+.tourn-card:hover .tourn-title,
+.abroad-card:hover .abroad-title,
+.regulation-card:hover .regulation-title {
+    color: var(--accent);
+    transition: color 0.2s;
+}
+.featured-card:hover .featured-title {
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+    </style>
 </head>
 <body>
 
@@ -927,7 +959,7 @@ a { color: inherit; text-decoration: none; }
           <div class="featured-hero-overlay"></div>
           <div class="featured-hero-content">
             <span class="featured-tag">⭐ TRITON POKER · FEATURED</span>
-            <h1 class="featured-title">田中啓介、Triton Poker Super High Roller Series Macao 2026でファイナルテーブル進出——歴史的快挙でHKD 12,800,000を獲得</h1>
+            <h1 class="featured-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">田中啓介、Triton Poker Super High Roller Series Macao 2026でファイナルテーブル進出——歴史的快挙でHKD 12,800,000を獲得</a></h1>
             <div class="featured-meta">
               <span>📍 マカオ・スタジオシティ</span>
               <span>🗓 2026年03月26日</span>
@@ -958,7 +990,7 @@ a { color: inherit; text-decoration: none; }
           <div class="source-tag">
             📰 出典：<strong>Triton Poker Official Website</strong>、<strong>PokerNews Japan</strong>（2026-03-26）
           </div>
-          <a href="#" class="read-more">続きを読む →</a>
+          <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
         </div>
       </article>
     </section>
@@ -982,13 +1014,13 @@ a { color: inherit; text-decoration: none; }
               <span class="cat-tag cat-jopt">JOPT</span>
               <span class="cat-tag cat-result">RESULT</span>
             </div>
-            <h3 class="article-title">JOPT Winter Series 最終戦・大阪大会レポート——参加者412名、賞金プール¥41,200,000の激戦を制したのは？</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">JOPT Winter Series 最終戦・大阪大会レポート——参加者412名、賞金プール¥41,200,000の激戦を制したのは？</a></h3>
             <p class="article-excerpt">
               2026年3月22日〜24日にかけて大阪・梅田のポーカークラブ「Diamond Palace」で開催されたJOPT（Japan Open Poker Tour）Winter Seriesの最終戦・大阪大会が幕を閉じた。総参加者数は412名に達し、バイイン¥100,000のメインイベントとして過去最大規模の大会となった。賞金プールは¥41,200,000（保証額¥35,000,000を大幅に超過）に膨らみ、上位64名に賞金が支払われた。激戦を制したのは神奈川県在住の元プロゲーマー・山本誠也（31歳）で、優勝賞金¥9,280,000を手にした。ファイナルテーブルではショートスタックから驚異的な追い上げを見せ、4名残りからのヘッズアップでは相手の3ベットを冷静にコールして逆転。JOPTポイントでも年間トップに躍り出た。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 JOPT公式 · 2026-03-25</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1004,13 +1036,13 @@ a { color: inherit; text-decoration: none; }
               <span class="cat-tag cat-strategy">STRATEGY</span>
               <span class="cat-tag cat-analysis">ANALYSIS</span>
             </div>
-            <h3 class="article-title">スーパーハイローラーで勝ち続ける「マルチウェイポット戦略」——田中啓介のTriton攻略法を徹底解説</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">スーパーハイローラーで勝ち続ける「マルチウェイポット戦略」——田中啓介のTriton攻略法を徹底解説</a></h3>
             <p class="article-excerpt">
               今回のTriton Macao大会で世界を驚かせた田中啓介のプレイスタイルには、独自のマルチウェイポット理論が秘められている。従来の「ポジション重視」の単純なアプローチとは一線を画し、エクイティリアライゼーションとデフェンシブレンジの組み合わせを高度に活用するアプローチを徹底している。本稿では、田中が実際にファイナルテーブル直前のキーハンドで見せた「ダブルバレルブラフのフォールドアウト」戦術を例に挙げ、GTO（ゲーム理論的最適解）ベースの意思決定プロセスを詳しく解説する。また、スーパーハイローラーにおける一般的なレギュラートーナメントとの主要な違い——特にブラインドスティールの頻度とスリーベットのサイジング——についても具体的な数値を交えながら分析する。GTO SolverとPioSolverの最新データを参照した本格的な戦略記事。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 Poker Japan Daily · 2026-03-27</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1025,13 +1057,13 @@ a { color: inherit; text-decoration: none; }
             <div class="article-cats">
               <span class="cat-tag cat-player">PLAYER</span>
             </div>
-            <h3 class="article-title">【プレイヤーインタビュー】鈴木彩香——23歳・女性プレイヤーが語る「ポーカーで世界を目指す理由」</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">【プレイヤーインタビュー】鈴木彩香——23歳・女性プレイヤーが語る「ポーカーで世界を目指す理由」</a></h3>
             <p class="article-excerpt">
               今年のJOPT Winter Seriesで女性プレイヤー最高位の5位（賞金¥1,850,000）に入賞した鈴木彩香（23歳・大阪府出身）。東京大学経済学部在学中にポーカーに目覚め、1年足らずでライブトーナメントに本格参戦し始めたという異色の経歴を持つ。「最初はパズルゲームの延長線上として始めたんです。でも、実際のテーブルで相手の心理を読む面白さに引き込まれていきました」と語る彼女は、今年のWSOPラスベガスへの参戦と、来年のTriton Poker参戦を本気で狙っている。本インタビューでは、女性プレイヤーとして国内のポーカーシーンで感じること、海外大会への挑戦計画、そしてポーカーと学業を両立させる生活スタイルについて率直に語ってもらった。ポーカー界の次世代を担う逸材の素顔に迫る。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 Poker Japan Daily · 2026-03-27</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1047,13 +1079,13 @@ a { color: inherit; text-decoration: none; }
               <span class="cat-tag cat-wsop">WSOP</span>
               <span class="cat-tag cat-analysis">ANALYSIS</span>
             </div>
-            <h3 class="article-title">WSOP 2026展望——日本人プレイヤー参戦計画まとめ。過去最多40名超が参戦見込み</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">WSOP 2026展望——日本人プレイヤー参戦計画まとめ。過去最多40名超が参戦見込み</a></h3>
             <p class="article-excerpt">
               今年5月28日からラスベガスのホースシュー・カジノ（旧バリーズ）を中心に開幕するWSOF（World Series of Poker）2026。日本からは過去最多となる40名以上のプレイヤーが参戦を予定していることが、国内ポーカーコミュニティへの独自取材で明らかになった。昨年のWSOPではMain Eventに参加した日本人が17名で、うち佐藤健太（28位・$32,000獲得）と中村リョウ（43位・$18,500獲得）がマネーフィニッシュ。今年は昨年の成功体験を受けて参戦希望者が急増しており、特に$1,000〜$3,000レンジのサイドイベントへの参戦が多くなる見込みだ。JOPTとAPTのパートナーシップ企画として、費用の一部をスポンサーが補助する「遠征サポートプログラム」も初めて提供される予定で、若手プレイヤーの海外挑戦を後押ししている。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 PokerNews Japan · 2026-03-26</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1069,13 +1101,13 @@ a { color: inherit; text-decoration: none; }
               <span class="cat-tag cat-world">WORLD</span>
               <span class="cat-tag cat-analysis">ANALYSIS</span>
             </div>
-            <h3 class="article-title">アジアポーカーシーン2026年Q1総括——韓国・中国・日本の三強構図と台頭するベトナム勢</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">アジアポーカーシーン2026年Q1総括——韓国・中国・日本の三強構図と台頭するベトナム勢</a></h3>
             <p class="article-excerpt">
               2026年第1四半期のアジアポーカーシーンを振り返ると、日本・韓国・中国の三カ国が引き続き主要プレイヤーとして君臨しながらも、ベトナム・フィリピン勢の急速な台頭が顕著となっている。APT（アジア・ポーカー・ツアー）Q1ランキングでは、韓国のキム・ドンファンが首位をキープしているが、日本の田中啓介が今回のTriton入賞で大きくポイントを伸ばし、総合2位に浮上。フィリピン代表のカルロ・アルベルトも急速にポイントを積み上げており、年間チャンピオンレースは混戦模様を呈している。本稿ではQ1の主要大会の結果を俯瞰しつつ、各国のトーナメントシーン拡大の背景を分析する。特に、フィリピンのオカダ・マニラとマカオのスタジオシティが国際大会誘致に力を入れており、アジアのライブポーカーシーンのハブ競争が激化している点に着目する。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 Asia Poker Review · 2026-03-25</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1091,13 +1123,13 @@ a { color: inherit; text-decoration: none; }
               <span class="cat-tag cat-triton">TRITON</span>
               <span class="cat-tag cat-result">RESULT</span>
             </div>
-            <h3 class="article-title">Triton Poker Macao 2026 全イベント結果まとめ——ジャック・ボデが3冠達成でシリーズ最高賞金記録を更新</h3>
+            <h3 class="article-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">Triton Poker Macao 2026 全イベント結果まとめ——ジャック・ボデが3冠達成でシリーズ最高賞金記録を更新</a></h3>
             <p class="article-excerpt">
               2026年3月18日〜26日にマカオのスタジオシティ・イベントセンターで開催された「Triton Poker Super High Roller Series Macao 2026」の全8イベントが終了した。今シリーズはバイイン総計の観点から過去最高規模となり、全8イベント合計の賞金総額はHKD 380,000,000（約72億7,000万円）に到達。フランスのジャック・ボデがメインイベントを含む3イベントで優勝し、今シリーズだけでHKD 58,600,000（約11億2,000万円）を獲得する圧倒的な強さを見せた。日本人プレイヤーは田中啓介（メインイベント6位）のほか、小林正樹がEvent #3（ショートデック・HKD 500,000バイイン）で11位（HKD 1,280,000）に入賞するなど、国際舞台での存在感を示した。今後のTriton Seriesはマニラ（5月）、モンテカルロ（9月）と続く予定で、日本人プレイヤーの参戦が注目される。
             </p>
             <div class="article-footer">
               <span class="article-source">📰 Triton Poker Official · 2026-03-26</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
             </div>
           </div>
         </article>
@@ -1122,7 +1154,7 @@ a { color: inherit; text-decoration: none; }
             <span class="cat-tag cat-jopt">JOPT</span>
             <span class="cat-tag cat-result">RESULT</span>
           </div>
-          <h3 class="tourn-title">JOPT Winter Series 2026 大阪メインイベント — 最終結果</h3>
+          <h3 class="tourn-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">JOPT Winter Series 2026 大阪メインイベント — 最終結果</a></h3>
           <div class="tourn-stats">
             <div class="tourn-stat">
               <span class="stat-label">参加者数</span>
@@ -1155,7 +1187,7 @@ a { color: inherit; text-decoration: none; }
             </div>
           </div>
           <div style="margin-top:14px;">
-            <a href="#" class="read-more">続きを読む →</a>
+            <a href="articles/daily/2026-03-26.html" class="read-more">続きを読む →</a>
           </div>
         </div>
       </article>
@@ -1170,7 +1202,7 @@ a { color: inherit; text-decoration: none; }
             <span class="cat-tag cat-apt">APT</span>
             <span class="cat-tag cat-result">RESULT</span>
           </div>
-          <h3 class="tourn-title">APT Manila Spring Open 2026 — Main Event 終了。プレイヤーリンクが激戦を制す</h3>
+          <h3 class="tourn-title"><a href="articles/daily/2026-03-26.html" class="card-link" style="color:inherit;text-decoration:none;">APT Manila Spring Open 2026 — Main Event 終了。プレイヤーリンクが激戦を制す</a></h3>
           <div class="tourn-stats">
             <div class="tourn-stat">
               <span class="stat-label">参加者数</span>
