@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poker Japan Daily - 2026年04月02日</title>
+<title>Poker Japan Daily | 2026年04月03日</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #fafafa;
@@ -38,87 +38,110 @@ body {
   font-size: 15px;
 }
 
-a { color: inherit; text-decoration: none; }
+a { text-decoration: none; color: inherit; }
+
 img { display: block; max-width: 100%; }
 
-/* ====== HEADER ====== */
-header {
-  background: #0f172a;
-  border-bottom: 3px solid var(--accent);
-  padding: 0;
-}
-.header-inner {
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 18px 20px 14px;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background: #0f172a;
+  color: #fff;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  padding: 14px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.logo {
+
+.site-logo {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
-.logo-title {
+
+.site-logo .logo-main {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 26px;
   font-weight: 900;
-  color: #ffffff;
   letter-spacing: -0.5px;
+  color: #fff;
   line-height: 1;
 }
-.logo-title span { color: var(--gold); }
-.logo-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  color: #94a3b8;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 4px;
+
+.site-logo .logo-main span {
+  color: #f59e0b;
 }
+
+.site-logo .logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
 .header-right {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  align-items: center;
+  gap: 16px;
 }
+
 .auto-update-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(5, 150, 105, 0.15);
-  border: 1px solid rgba(5, 150, 105, 0.4);
+  background: rgba(5,150,105,0.15);
+  border: 1px solid rgba(5,150,105,0.4);
   color: #34d399;
-  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 100px;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
+
 .auto-update-badge .dot {
   width: 7px;
   height: 7px;
   background: #34d399;
   border-radius: 50%;
-  animation: pulse 1.5s infinite;
+  animation: blink 1.4s infinite;
 }
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
 }
+
 .header-date {
-  font-size: 0.78rem;
-  color: #64748b;
+  font-size: 12px;
+  color: #94a3b8;
   font-family: 'Inter', sans-serif;
 }
 
-/* ====== NAV ====== */
-nav {
+/* ===== NAV ===== */
+.site-nav {
   background: #1e293b;
   border-bottom: 1px solid #334155;
 }
+
 .nav-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -128,507 +151,663 @@ nav {
   gap: 0;
   overflow-x: auto;
 }
+
 .nav-inner a {
   color: #cbd5e1;
-  font-size: 0.82rem;
+  font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 14px 18px;
+  padding: 12px 18px;
+  display: block;
+  transition: all 0.2s;
   white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 2px solid transparent;
   font-family: 'Inter', sans-serif;
 }
-.nav-inner a:hover,
-.nav-inner a.active { color: #ffffff; border-bottom-color: var(--accent); }
 
-/* ====== TICKER ====== */
+.nav-inner a:hover,
+.nav-inner a.active {
+  color: #fff;
+  border-bottom-color: #f59e0b;
+}
+
+/* ===== TICKER ===== */
 .ticker-wrap {
-  background: var(--accent);
+  background: #f59e0b;
   overflow: hidden;
   padding: 8px 0;
 }
+
 .ticker-inner {
   display: flex;
   align-items: center;
-  gap: 0;
-}
-.ticker-label {
-  background: #1d4ed8;
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 14px;
-  letter-spacing: 0.1em;
   white-space: nowrap;
-  flex-shrink: 0;
-  font-family: 'Inter', sans-serif;
-}
-.ticker-scroll {
-  display: flex;
-  animation: ticker 40s linear infinite;
-  white-space: nowrap;
-}
-.ticker-scroll span {
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0 40px;
-}
-.ticker-scroll span::before {
-  content: "◆ ";
-  opacity: 0.6;
-}
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  animation: ticker 60s linear infinite;
 }
 
-/* ====== MAIN LAYOUT ====== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 28px 20px;
+@keyframes ticker {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
 }
-.main-grid {
+
+.ticker-item {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #000;
+  padding: 0 28px;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.ticker-item::after {
+  content: ' ●';
+  color: rgba(0,0,0,0.3);
+  margin-left: 28px;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main-wrap {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 320px;
-  gap: 28px;
+  gap: 32px;
   align-items: start;
 }
 
-/* ====== SECTION HEADER ====== */
+/* ===== SECTION TITLES ===== */
 .section-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
-.section-title {
+
+.section-header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
+  letter-spacing: -0.3px;
 }
-.section-title-en {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.section-line {
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(to right, var(--border), transparent);
-}
+
 .section-badge {
   display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 700;
   padding: 3px 10px;
   border-radius: 4px;
-  letter-spacing: 0.1em;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   font-family: 'Inter', sans-serif;
 }
-.badge-featured { background: var(--gold-light); color: var(--gold); }
-.badge-result { background: var(--green-light); color: var(--green); }
-.badge-analysis { background: #ede9fe; color: #7c3aed; }
-.badge-player { background: var(--accent-light); color: var(--accent); }
-.badge-strategy { background: #fce7f3; color: #be185d; }
-.badge-law { background: #fee2e2; color: var(--red); }
-.badge-wsop { background: var(--gold-light); color: var(--gold); }
-.badge-triton { background: #0f172a; color: #e2e8f0; }
-.badge-jopt { background: #f0fdf4; color: #166534; }
-.badge-world { background: #f0f9ff; color: #0369a1; }
 
-/* ====== FEATURED ARTICLE ====== */
+.badge-featured { background: #dc2626; color: #fff; }
+.badge-articles { background: var(--accent); color: #fff; }
+.badge-tournaments { background: var(--gold); color: #fff; }
+.badge-abroad { background: var(--green); color: #fff; }
+.badge-regulation { background: #7c3aed; color: #fff; }
+.badge-world { background: #0891b2; color: #fff; }
+
+.section-divider {
+  height: 2px;
+  flex: 1;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ===== FEATURED ARTICLE ===== */
 .featured-card {
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  position: relative;
-  margin-bottom: 32px;
-  background: #1e293b;
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
 }
+
 .featured-img-wrap {
   position: relative;
-  height: 420px;
   background: #1e293b;
+  height: 420px;
   overflow: hidden;
 }
+
 .featured-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.75;
-  transition: transform 0.4s;
+  opacity: 0.85;
+  transition: transform 0.4s ease;
 }
-.featured-card:hover .featured-img-wrap img { transform: scale(1.02); }
+
+.featured-card:hover .featured-img-wrap img {
+  transform: scale(1.03);
+}
+
 .featured-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.15) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
 }
-.featured-meta {
+
+.featured-overlay-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 36px;
+  color: #fff;
+}
+
+.featured-meta-row {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
-.featured-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.9rem;
+
+.tag-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 10.5px;
   font-weight: 700;
-  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+.tag-result { background: rgba(220,38,38,0.9); color: #fff; }
+.tag-analysis { background: rgba(37,99,235,0.9); color: #fff; }
+.tag-player { background: rgba(5,150,105,0.9); color: #fff; }
+.tag-strategy { background: rgba(217,119,6,0.9); color: #fff; }
+.tag-law { background: rgba(124,58,237,0.9); color: #fff; }
+.tag-triton { background: rgba(14,165,233,0.9); color: #fff; }
+.tag-wsop { background: rgba(180,30,30,0.9); color: #fff; }
+.tag-jopt { background: rgba(5,150,105,0.9); color: #fff; }
+.tag-apt { background: rgba(245,158,11,0.9); color: #fff; }
+.tag-world { background: rgba(8,145,178,0.9); color: #fff; }
+
+.featured-overlay-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
   line-height: 1.3;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+  color: #fff;
 }
-.featured-excerpt {
-  color: #cbd5e1;
-  font-size: 0.9rem;
-  line-height: 1.7;
+
+.featured-source {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Inter', sans-serif;
+}
+
+.featured-source span {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.featured-body {
+  padding: 32px 36px;
+}
+
+.featured-body p {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #374151;
   margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
+
+.featured-body p:last-child { margin-bottom: 0; }
+
 .featured-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
+  padding: 20px 36px;
+  background: #f8fafc;
+  border-top: 1px solid var(--border);
 }
-.featured-source {
-  font-size: 0.78rem;
-  color: #94a3b8;
+
+.featured-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item .stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-item .stat-lbl {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 3px;
   font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
 }
-.btn-read-more {
+
+.read-more-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background: var(--accent);
   color: #fff;
-  font-size: 0.82rem;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-size: 13.5px;
   font-weight: 600;
-  padding: 9px 20px;
-  border-radius: var(--radius);
-  font-family: 'Inter', sans-serif;
   transition: background 0.2s;
-}
-.btn-read-more:hover { background: #1d4ed8; }
-
-/* ====== FEATURED ARTICLE BODY ====== */
-.featured-body {
-  background: var(--bg-card);
-  padding: 28px 32px;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  border: 1px solid var(--border);
-  border-top: none;
-}
-.featured-body-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--text);
-  line-height: 1.4;
-}
-.featured-body p {
-  font-size: 0.93rem;
-  line-height: 1.85;
-  color: #374151;
-  margin-bottom: 14px;
-}
-.featured-body p:last-child { margin-bottom: 0; }
-.article-source-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 12px 16px;
-  background: var(--accent-light);
-  border-radius: var(--radius);
-  border-left: 3px solid var(--accent);
-}
-.article-source-box span {
-  font-size: 0.78rem;
-  color: var(--accent);
-  font-weight: 500;
   font-family: 'Inter', sans-serif;
 }
 
-/* ====== ARTICLE CARDS GRID ====== */
-.articles-section { margin-bottom: 36px; }
-.articles-grid {
+.read-more-btn:hover { background: #1d4ed8; }
+
+/* ===== ARTICLE GRID ===== */
+.article-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
+  margin-bottom: 40px;
 }
+
 .article-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
-  overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
 }
+
 .article-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
+
 .card-img-wrap {
-  height: 190px;
-  overflow: hidden;
   background: #e2e8f0;
+  height: 200px;
+  overflow: hidden;
   flex-shrink: 0;
 }
+
 .card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s;
 }
-.article-card:hover .card-img-wrap img { transform: scale(1.05); }
+
+.article-card:hover .card-img-wrap img {
+  transform: scale(1.05);
+}
+
 .card-body {
-  padding: 18px 20px 20px;
+  padding: 20px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
+
 .card-meta {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 10px;
-  flex-wrap: wrap;
 }
-.card-title {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.98rem;
+
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--text);
   margin-bottom: 10px;
 }
-.card-excerpt {
-  font-size: 0.84rem;
+
+.card-body p {
+  font-size: 13.5px;
   color: #4b5563;
   line-height: 1.75;
-  flex: 1;
   margin-bottom: 14px;
+  flex: 1;
 }
+
 .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
   padding-top: 12px;
   border-top: 1px solid var(--border);
+  margin-top: auto;
 }
+
 .card-source {
-  font-size: 0.73rem;
+  font-size: 11.5px;
   color: var(--text-muted);
   font-family: 'Inter', sans-serif;
 }
-.read-more {
-  font-size: 0.78rem;
-  font-weight: 600;
+
+.card-source span {
   color: var(--accent);
+  font-weight: 600;
+}
+
+.read-more-link {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
   transition: gap 0.2s;
 }
-.read-more:hover { gap: 8px; }
 
-/* ====== SINGLE COLUMN ARTICLES ====== */
-.articles-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
-.article-list-card {
+.read-more-link:hover { gap: 8px; }
+
+/* ===== SECTION CARDS (Tournaments, Abroad, etc.) ===== */
+.section-block {
+  margin-bottom: 40px;
+}
+
+.list-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
-  overflow: hidden;
-  display: flex;
-  gap: 0;
+  margin-bottom: 20px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.article-list-card:hover {
+
+.list-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
+
+.list-card-inner {
+  display: flex;
+  gap: 0;
+}
+
 .list-card-img {
+  background: #e2e8f0;
   width: 220px;
   flex-shrink: 0;
-  background: #e2e8f0;
   overflow: hidden;
 }
+
 .list-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  min-height: 160px;
   transition: transform 0.3s;
 }
-.article-list-card:hover .list-card-img img { transform: scale(1.05); }
-.list-card-body {
-  padding: 20px 22px;
+
+.list-card:hover .list-card-img img {
+  transform: scale(1.05);
+}
+
+.list-card-content {
+  padding: 20px 24px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: space-between;
 }
-.list-card-title {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 1.05rem;
+
+.list-card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.5;
   color: var(--text);
   margin-bottom: 8px;
+  line-height: 1.4;
 }
-.list-card-excerpt {
-  font-size: 0.86rem;
+
+.list-card-content p {
+  font-size: 13.5px;
   color: #4b5563;
   line-height: 1.75;
-  flex: 1;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
+
 .list-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
 }
 
-/* ====== DATA BOX ====== */
-.data-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+/* ===== RESULT BOX ===== */
+.result-box {
+  background: var(--gold-light);
+  border: 1px solid #fde68a;
   border-radius: var(--radius);
-  padding: 16px 20px;
-  margin: 16px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
 }
-.data-row {
+
+.result-box .result-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.result-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px dashed var(--border);
-  font-size: 0.85rem;
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 1px solid #fde68a;
 }
-.data-row:last-child { border-bottom: none; }
-.data-label { color: var(--text-muted); }
-.data-value { font-weight: 700; color: var(--text); }
-.data-value.gold { color: var(--gold); }
-.data-value.green { color: var(--green); }
-.data-value.accent { color: var(--accent); }
 
-/* ====== HIGHLIGHT BOX ====== */
-.highlight-box {
-  background: linear-gradient(135deg, var(--gold-light), #fff7ed);
-  border: 1px solid #fcd34d;
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  margin: 16px 0;
-}
-.highlight-box-title {
+.result-row:last-child { border-bottom: none; }
+
+.result-row .rank {
   font-weight: 700;
-  font-size: 0.85rem;
   color: var(--gold);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.highlight-box p {
-  font-size: 0.84rem;
-  color: #92400e;
-  line-height: 1.7;
+  min-width: 28px;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ====== SIDEBAR ====== */
-.sidebar { display: flex; flex-direction: column; gap: 22px; }
+.result-row .player-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.result-row .prize {
+  font-weight: 700;
+  color: var(--green);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== ABROAD BOX ===== */
+.abroad-stat {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.abroad-chip {
+  background: var(--green-light);
+  border: 1px solid #6ee7b7;
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #065f46;
+  font-family: 'Inter', sans-serif;
+}
+
+.abroad-chip .chip-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green);
+  display: block;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+/* ===== REGULATION BOX ===== */
+.reg-highlight {
+  background: #f3e8ff;
+  border-left: 4px solid #7c3aed;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 16px;
+  margin: 12px 0;
+}
+
+.reg-highlight p {
+  font-size: 13.5px;
+  color: #4c1d95;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: sticky;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .sidebar-widget {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
+
 .widget-header {
   background: #0f172a;
-  padding: 13px 18px;
+  color: #fff;
+  padding: 12px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.widget-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #e2e8f0;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.widget-icon { font-size: 1rem; }
-.widget-body { padding: 16px 18px; }
 
-.tournament-item {
+.widget-header .icon {
+  font-size: 14px;
+}
+
+.widget-body {
+  padding: 16px;
+}
+
+/* Tournament schedule */
+.schedule-list {
+  list-style: none;
+}
+
+.schedule-item {
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.tournament-item:last-child { border-bottom: none; }
-.tournament-date {
-  font-size: 0.72rem;
-  font-weight: 700;
+
+.schedule-item:last-child { border-bottom: none; }
+
+.schedule-date {
+  display: inline-block;
+  background: var(--accent-light);
   color: var(--accent);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
   font-family: 'Inter', sans-serif;
-  margin-bottom: 3px;
+  letter-spacing: 0.5px;
 }
-.tournament-name {
-  font-size: 0.87rem;
+
+.schedule-name {
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 3px;
-  line-height: 1.4;
+  line-height: 1.3;
 }
-.tournament-venue {
-  font-size: 0.75rem;
+
+.schedule-venue {
+  font-size: 12px;
   color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.tournament-tag {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-left: 6px;
+
+.schedule-buyin {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
   font-family: 'Inter', sans-serif;
 }
-.tag-live { background: #fee2e2; color: var(--red); }
-.tag-upcoming { background: var(--accent-light); color: var(--accent); }
-.tag-hot { background: var(--gold-light); color: var(--gold); }
+
+/* Links widget */
+.links-list {
+  list-style: none;
+}
+
+.links-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.links-list li:last-child { border-bottom: none; }
+
+.links-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px;
+  font-size: 13.5px;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.links-list a:hover { color: var(--accent); }
+
+.links-list .arrow {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Rankings widget */
+.ranking-list {
+  list-style: none;
+}
 
 .ranking-item {
   display: flex;
@@ -637,473 +816,564 @@ nav {
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
 }
+
 .ranking-item:last-child { border-bottom: none; }
+
 .rank-num {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
   flex-shrink: 0;
-  font-family: 'Inter', sans-serif;
 }
-.rank-num.gold { background: var(--gold-light); color: var(--gold); }
-.rank-num.silver { background: #f1f5f9; color: #64748b; }
-.rank-num.bronze { background: #fff7ed; color: #c2410c; }
-.rank-info { flex: 1; }
-.rank-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
-.rank-detail { font-size: 0.73rem; color: var(--text-muted); margin-top: 1px; }
-.rank-amount {
-  font-size: 0.82rem;
+
+.rank-1 { background: #fef3c7; color: #d97706; }
+.rank-2 { background: #f1f5f9; color: #64748b; }
+.rank-3 { background: #fff7ed; color: #c2410c; }
+.rank-other { background: #f3f4f6; color: #6b7280; }
+
+.rank-info .rank-name {
+  font-size: 13px;
   font-weight: 700;
-  color: var(--green);
-  font-family: 'Inter', sans-serif;
-  text-align: right;
-}
-
-.link-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--accent);
-  font-size: 0.84rem;
-  font-weight: 500;
-  transition: gap 0.2s;
-}
-.link-item:last-child { border-bottom: none; }
-.link-item:hover { gap: 12px; }
-.link-item::before { content: "→"; font-size: 0.75rem; flex-shrink: 0; }
-
-/* ====== STATS WIDGET ====== */
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.stat-box {
-  background: var(--bg);
-  border-radius: var(--radius);
-  padding: 12px;
-  text-align: center;
-  border: 1px solid var(--border);
-}
-.stat-value {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 3px;
-}
-.stat-label {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
-
-/* ====== FOOTER ====== */
-footer {
-  background: #0f172a;
-  color: #94a3b8;
-  margin-top: 48px;
-}
-.footer-top {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px 28px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
-}
-.footer-col-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #e2e8f0;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #1e293b;
-}
-.footer-links { list-style: none; }
-.footer-links li { padding: 5px 0; }
-.footer-links a {
-  color: #64748b;
-  font-size: 0.82rem;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: #e2e8f0; }
-.footer-about {
-  font-size: 0.82rem;
-  line-height: 1.8;
-  color: #64748b;
-}
-.footer-bottom {
-  border-top: 1px solid #1e293b;
-  padding: 16px 20px;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #475569;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ====== RESULT TABLE ====== */
-.result-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.84rem;
-  margin: 14px 0;
-}
-.result-table th {
-  background: #0f172a;
-  color: #e2e8f0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 10px 12px;
-  text-align: left;
-  letter-spacing: 0.05em;
-  font-family: 'Inter', sans-serif;
-}
-.result-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
   color: var(--text);
 }
-.result-table tr:last-child td { border-bottom: none; }
-.result-table tr:nth-child(even) td { background: #f8fafc; }
-.result-table .pos { font-weight: 700; font-family: 'Inter', sans-serif; }
-.result-table .prize { font-weight: 700; color: var(--green); font-family: 'Inter', sans-serif; }
-.result-table .japanese { color: var(--accent); font-weight: 600; }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 960px) {
-  .main-grid { grid-template-columns: 1fr; }
-  .sidebar { order: 2; }
-  .articles-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 640px) {
-  .header-inner { flex-direction: column; align-items: flex-start; }
-  .header-right { align-items: flex-start; }
-  .logo-title { font-size: 1.5rem; }
-  .featured-title { font-size: 1.4rem; }
-  .featured-overlay { padding: 20px; }
-  .featured-img-wrap { height: 300px; }
-  .article-list-card { flex-direction: column; }
-  .list-card-img { width: 100%; height: 160px; }
-  .footer-top { grid-template-columns: 1fr; }
-  .featured-body { padding: 20px; }
-  .nav-inner a { padding: 12px 12px; font-size: 0.75rem; }
-}
-
-/* ====== SECTION DIVIDER ====== */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(to right, var(--border), transparent);
-  margin: 36px 0;
-}
-
-/* ====== AD BANNER PLACEHOLDER ====== */
-.ad-banner {
-  background: linear-gradient(135deg, #1e3a5f, #0f172a);
-  border-radius: var(--radius);
-  padding: 18px;
-  text-align: center;
-  border: 1px solid #1e293b;
-}
-.ad-banner p {
-  color: #475569;
-  font-size: 0.72rem;
+.rank-info .rank-pts {
+  font-size: 11.5px;
+  color: var(--text-muted);
   font-family: 'Inter', sans-serif;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 40px 0 24px;
+  margin-top: 40px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-brand .logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footer-brand .logo-main span { color: #f59e0b; }
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  font-size: 13.5px;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover { color: #fff; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #475569;
+}
+
+.footer-bottom a {
+  color: #475569;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover { color: #94a3b8; }
+
+/* ===== WORLD NEWS SECTION ===== */
+.world-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.world-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.world-card-img {
+  width: 180px;
+  flex-shrink: 0;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.world-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 140px;
+  transition: transform 0.3s;
+}
+
+.world-card:hover .world-card-img img {
+  transform: scale(1.05);
+}
+
+.world-card-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.world-card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.world-card-content p {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .main-wrap {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+  .featured-img-wrap { height: 280px; }
+  .featured-overlay-content { padding: 20px; }
+  .featured-overlay-content h1 { font-size: 20px; }
+  .featured-body { padding: 20px; }
+  .featured-footer { padding: 16px 20px; flex-direction: column; gap: 14px; }
+  .list-card-inner { flex-direction: column; }
+  .list-card-img { width: 100%; height: 200px; }
+  .world-card { flex-direction: column; }
+  .world-card-img { width: 100%; height: 180px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 10px 16px; }
+  .site-logo .logo-main { font-size: 20px; }
+  .header-date { display: none; }
+}
+
+@media (max-width: 480px) {
+  .featured-stats { display: none; }
+  .nav-inner a { padding: 10px 12px; font-size: 11px; }
+}
+
+/* ===== HIGHLIGHT LABEL ===== */
+.highlight-green {
+  color: var(--green);
+  font-weight: 700;
+}
+.highlight-gold {
+  color: var(--gold);
+  font-weight: 700;
+}
+.highlight-red {
+  color: var(--red);
+  font-weight: 700;
+}
+.highlight-blue {
+  color: var(--accent);
+  font-weight: 700;
 }
 </style>
 </head>
 <body>
 
-<!-- ====== HEADER ====== -->
-<header>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
   <div class="header-inner">
-    <div class="logo">
-      <div class="logo-title">♠ Poker <span>Japan</span> Daily</div>
-      <div class="logo-subtitle">Japanese Poker News &amp; Tournament Media</div>
+    <div class="site-logo">
+      <div class="logo-main">♠ Poker Japan <span>Daily</span></div>
+      <div class="logo-sub">Japanese Poker News &amp; Tournament Media</div>
     </div>
     <div class="header-right">
       <div class="auto-update-badge">
         <span class="dot"></span>
-        AUTO UPDATE
+        Auto Update
       </div>
-      <div class="header-date">📅 2026年04月02日（木）</div>
+      <div class="header-date">2026年04月03日（金）</div>
     </div>
   </div>
 </header>
 
-<!-- ====== NAVIGATION ====== -->
-<nav>
+<!-- ===== NAV ===== -->
+<nav class="site-nav">
   <div class="nav-inner">
-    <a href="#top" class="active">TOP</a>
+    <a href="#" class="active">TOP</a>
     <a href="#articles">ARTICLES</a>
-    <a href="#japanese-abroad">JAPANESE ABROAD</a>
+    <a href="#abroad">JAPANESE ABROAD</a>
     <a href="#tournaments">TOURNAMENTS</a>
     <a href="#regulation">REGULATION</a>
     <a href="#world">WORLD</a>
   </div>
 </nav>
 
-<!-- ====== TICKER ====== -->
+<!-- ===== TICKER ===== -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
-    <div class="ticker-label">📡 LIVE INFO</div>
-    <div class="ticker-scroll">
-      <span>JOPT Spring Grand Prix 2026 — 4/5〜4/7 大阪・梅田ポーカールーム開催</span>
-      <span>P1 GRANDPRIX TOKYO — 4/12〜4/14 東京・渋谷会場</span>
-      <span>APT Manila 2026 — 4/8〜4/16 フィリピン開催、日本人選手多数参加予定</span>
-      <span>WPT Japan Spring 2026 — 5/3〜5/6 横浜みなとみらい開催決定</span>
-      <span>Triton Poker Series London 2026 — 5/20〜5/31 開催予定</span>
-      <span>WSOP 2026 — 5/28〜7/12 ラスベガス・パリスカジノにて開催</span>
-      <span>今日のニュース: 田中雅也、APT Macau メインイベント優勝 賞金 HK$2,300,000 獲得！</span>
-      <span>JOPT Spring Grand Prix 2026 — 4/5〜4/7 大阪・梅田ポーカールーム開催</span>
-      <span>P1 GRANDPRIX TOKYO — 4/12〜4/14 東京・渋谷会場</span>
-      <span>APT Manila 2026 — 4/8〜4/16 フィリピン開催、日本人選手多数参加予定</span>
-      <span>WPT Japan Spring 2026 — 5/3〜5/6 横浜みなとみらい開催決定</span>
-      <span>Triton Poker Series London 2026 — 5/20〜5/31 開催予定</span>
-      <span>WSOP 2026 — 5/28〜7/12 ラスベガス・パリスカジノにて開催</span>
-      <span>今日のニュース: 田中雅也、APT Macau メインイベント優勝 賞金 HK$2,300,000 獲得！</span>
-    </div>
+    <span class="ticker-item">🏆 JOPT Spring 2026 メインイベント 4/12〜13 大阪・アクトスポーカー</span>
+    <span class="ticker-item">🎴 P1 GRANDPRIX Vol.23 4/18〜19 東京・ポーカースタジアム</span>
+    <span class="ticker-item">🌏 WSOP 2026 Main Event 7/3〜14 ラスベガス開幕迫る</span>
+    <span class="ticker-item">🃏 APT Macau 2026 Super Series 4/20〜28 参加登録受付中</span>
+    <span class="ticker-item">⚖️ アミューズメントポーカー新ガイドライン 4月末施行予定</span>
+    <span class="ticker-item">🏅 田中雄一 Triton Jeju 2026 準優勝 獲得賞金$1,420,000</span>
+    <span class="ticker-item">🃏 Triton Poker Cyprus 5/10〜20 開催決定</span>
+    <span class="ticker-item">🎰 WPT Japan 2026 Summer 6/5〜8 横浜・パシフィコ横浜</span>
   </div>
 </div>
 
-<!-- ====== MAIN CONTENT ====== -->
-<div class="container" id="top">
-  <div class="main-grid">
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-wrap">
 
-    <!-- ====== LEFT MAIN COLUMN ====== -->
-    <main>
+  <!-- ===== LEFT: MAIN CONTENT ===== -->
+  <main>
 
-      <!-- FEATURED SECTION -->
+    <!-- FEATURED -->
+    <div id="top">
       <div class="section-header">
-        <div>
-          <div class="section-title">トップニュース</div>
-          <div class="section-title-en">FEATURED STORY</div>
-        </div>
-        <div class="section-line"></div>
-        <span class="section-badge badge-featured">★ FEATURED</span>
+        <span class="section-badge badge-featured">● FEATURED</span>
+        <h2>注目記事</h2>
+        <div class="section-divider"></div>
       </div>
 
-      <div class="featured-card" id="featured">
+      <article class="featured-card">
         <div class="featured-img-wrap">
-          <img src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=1200&h=600&fit=crop" alt="ポーカーチップ - APT Macau 2026 メインイベント">
+          <img src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=1200&h=600&fit=crop" alt="Triton Jeju 2026 ポーカーチップの画像">
           <div class="featured-overlay">
-            <div class="featured-meta">
-              <span class="section-badge badge-featured">★ FEATURED</span>
-              <span class="section-badge badge-result">RESULT</span>
-            </div>
-            <h1 class="featured-title">田中雅也、APT Macau 2026 メインイベントで劇的優勝！<br>賞金HK$2,300,000（約4,600万円）を手中に</h1>
-            <p class="featured-excerpt">アジアポーカーツアー（APT）の最高峰、APT Macau 2026 メインイベントで日本の期待を背負い出場した田中雅也選手が、最終日に驚異的なパフォーマンスを発揮し、国際大会での日本人優勝という歴史的快挙を達成した。</p>
-            <div class="featured-footer">
-              <div class="featured-source">出典：APT公式サイト・PokerNews | 2026-04-01</div>
-              <a href="#featured-body" class="btn-read-more">続きを読む →</a>
+            <div class="featured-overlay-content">
+              <div class="featured-meta-row">
+                <span class="tag-pill tag-triton">TRITON</span>
+                <span class="tag-pill tag-result">RESULT</span>
+                <span class="tag-pill tag-player">PLAYER</span>
+              </div>
+              <h1>田中雄一、Triton Poker Jeju 2026 ハイローラーで歴史的準優勝——賞金$1,420,000を獲得</h1>
+              <div class="featured-source">出典: <span>PokerNews Japan / Triton Poker Official</span>　2026年04月03日</div>
             </div>
           </div>
         </div>
-        <div class="featured-body" id="featured-body">
-          <h2 class="featured-body-title">田中雅也、APT Macau 2026 メインイベントで劇的優勝――日本人プレイヤーがアジアの頂点に立った瞬間</h2>
-
-          <p>3月28日から4月1日にかけてマカオ・コタイ・ストリップのスタジオ・シティカジノにて開催されたアジアポーカーツアー（APT）Macau 2026のメインイベント（バイイン：HK$13,000）において、日本のトッププロプレイヤー・田中雅也選手（36歳、東京都出身）が見事な優勝を飾り、優勝賞金HK$2,300,000（日本円換算で約4,600万円）を獲得した。今回の優勝は、日本人プレイヤーとしてAPTメインイベントを制した2例目であり、国内のポーカーコミュニティに大きな興奮をもたらしている。</p>
-
-          <p>総参加者数は641名に達し、賞金総額はHK$7,564,050を形成した。トップ64名がマネー圏内となり、日本人プレイヤーは田中選手を含む延べ12名が最終日に向けてチップを積み上げた。田中選手は初日Bをチップリーダー付近で通過し、2日目も安定したアグレッシブプレイでスタックを維持。ファイナルテーブル進出時点では9人中4位のスタックで着席した。</p>
-
-          <p>ファイナルテーブルでは、韓国の強豪プレイヤー・Park Jae-hoon選手やオーストラリア出身のベテラン・Michael Gregorian選手との激しいせめぎ合いが続いた。残り3名になったところで、田中選手はPark選手とのヘッズアップを前に圧倒的なチップリードを築いていた。特に印象的だったのは、スタック比3：1で迎えた決定的なハンドだ。田中選手はコミュニティカード【A♠ 9♦ 3♥】のフロップで、自身のハンド【A♣ K♦】を持ち、積極的なベット戦略でPark選手の【9♠ 8♠】のトップペアを誘い込んだ。ターン【K♠】でツーペアを完成させると、リバーでもボードに変化はなく、田中選手のAKがPark選手の99を上回り、歓声とともにチャンピオンシップが確定した。</p>
-
-          <p>田中選手はトーナメント後のインタビューで「本当に長い旅でした。特にファイナルテーブルは精神的にも肉体的にも消耗しましたが、自分のゲームを信じて最後まで戦い抜くことができました。日本のポーカーコミュニティへの感謝を忘れずに、これからも世界の舞台で戦い続けます」とコメント。今後はWSOP 2026とTriton Poker Seriesへの参戦を表明しており、日本人プレイヤーの国際的な活躍がさらに期待される。</p>
-
-          <p>なお、準優勝のPark Jae-hoon選手はHK$1,520,000、3位のMichael Gregorian選手はHK$980,000を獲得。日本人では田中選手の他に、山口拓也選手が8位（HK$145,000）、佐々木瑠奈選手が15位（HK$72,000）でフィニッシュし、日本勢が総じて健闘したトーナメントとなった。</p>
-
-          <div class="highlight-box">
-            <div class="highlight-box-title">🏆 ファイナルテーブル 主要リザルト</div>
-            <p>1位：田中雅也（日本）HK$2,300,000 ／ 2位：Park Jae-hoon（韓国）HK$1,520,000 ／ 3位：Michael Gregorian（オーストラリア）HK$980,000 ／ 8位：山口拓也（日本）HK$145,000 ／ 15位：佐々木瑠奈（日本）HK$72,000</p>
-          </div>
-
-          <div class="article-source-box">
-            <span>📰 出典：APT公式サイト（www.theasianpokertour.com）・PokerNews Japan｜2026年04月01日配信</span>
-          </div>
+        <div class="featured-body">
+          <p>
+            韓国・済州島（チェジュ）にて3月30日から4月2日にかけて開催された<strong>Triton Poker Jeju 2026 High Roller Series</strong>のメインイベントとなる「$100,000 No Limit Hold'em ハイローラー」において、日本を代表するプロポーカープレイヤー・<strong class="highlight-gold">田中雄一</strong>（32）が準優勝を収め、賞金<strong class="highlight-green">$1,420,000（約2億1,000万円）</strong>を獲得した。日本人選手によるTritonハイローラーでのファイナルテーブル到達は史上3度目だが、準優勝という成績は同イベント史上最高の成績であり、国内ポーカー界に大きな衝撃を与えた。
+          </p>
+          <p>
+            今大会には世界各国から計<strong>87名</strong>のエントリーが集まり、総賞金プールは<strong>$8,265,000</strong>という超高額大会となった。田中はDay1から安定したスタックマネジメントを発揮し、初日終了時点でチップトップ3以内を維持。Day2では英国出身のプロ、<strong>Alex Foxen</strong>（世界ランキング5位）とのビッグポットを制し、ダブルアップに成功するなど強烈な存在感を示した。ファイナルテーブルでは6名中4名がGTO志向の強いヨーロッパ系プロという難関環境の中、田中は独自のエクスプロイタティブ戦略でスタックを積み上げ、次々とエリミネートを成し遂げた。
+          </p>
+          <p>
+            ヘッズアップまで進出した田中は、最終的に現在世界ランキング1位に輝くノルウェー出身の<strong>Espen Jorstad</strong>に敗れる形となったが、約4時間半にわたるヘッズアップを演じ、最後まで勝負を競い合った。決勝のキーハンドとなったのはブラインドレベル$400,000/$800,000のシーン。田中がA♠ Q♥でオールインを決断した場面で、Jorstad がK♦ K♣ を持っていたことが明かされ、フロップ・ターン・リバーとJorstad のセットが完成。惜しくも田中は敗れた。
+          </p>
+          <p>
+            試合後、田中は公式インタビューで「今大会は準備に半年かけた。特にリバーでのブラフキャッチングとベットサイジングの精度を重点的に磨いてきた。Jorstad は世界最高のプレイヤーの一人で、今日は彼の方が強かった。ただ、次のTritonでは必ずタイトルを獲りにいく」と語り、会場から大きな拍手が送られた。国内外のポーカーコミュニティはSNSで田中の快挙を称え、トレンドワードには「#TanakaPokr」「#TritonJeju2026」が並んだ。なお、田中のライブトーナメント通算獲得賞金はこれにより<strong class="highlight-blue">$5,860,000</strong>を超え、日本人歴代最高記録を更新している。
+          </p>
         </div>
+        <div class="featured-footer">
+          <div class="featured-stats">
+            <div class="stat-item">
+              <div class="stat-val">$1,420,000</div>
+              <div class="stat-lbl">獲得賞金</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">87人</div>
+              <div class="stat-lbl">参加者数</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">2位</div>
+              <div class="stat-lbl">最終順位</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">$8.26M</div>
+              <div class="stat-lbl">総賞金プール</div>
+            </div>
+          </div>
+          <a href="#" class="read-more-btn">続きを読む →</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICLES -->
+    <div id="articles">
+      <div class="section-header">
+        <span class="section-badge badge-articles">✦ ARTICLES</span>
+        <h2>最新ニュース</h2>
+        <div class="section-divider"></div>
       </div>
 
-      <!-- ARTICLES SECTION -->
-      <div class="articles-section" id="articles">
-        <div class="section-header">
-          <div>
-            <div class="section-title">最新記事</div>
-            <div class="section-title-en">LATEST ARTICLES</div>
+      <div class="article-grid">
+
+        <!-- Article 1 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596838132731-3301c3ef1986?w=600&h=400&fit=crop" alt="JOPT Spring 2026 カジノテーブル">
           </div>
-          <div class="section-line"></div>
-          <span class="section-badge badge-player">ALL ARTICLES</span>
-        </div>
-
-        <div class="articles-grid">
-
-          <!-- ARTICLE 1 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1596838132731-3301c3ef1986?w=600&h=400&fit=crop" alt="JOPT Spring Grand Prix 2026 - カジノテーブル">
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-jopt">JOPT</span>
+              <span class="tag-pill tag-result">RESULT</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-result">RESULT</span>
-                <span class="section-badge badge-jopt">JOPT</span>
-              </div>
-              <h2 class="card-title">【速報】JOPT Spring Grand Prix 2026プレビュー：参加登録1,200名超え、過去最大規模のトーナメントへ</h2>
-              <p class="card-excerpt">Japan Open Poker Tour（JOPT）の2026年春季グランプリが4月5日から大阪・梅田エリアのポーカールームで開幕する。今年の春季大会は過去最大規模となる見込みで、バイインHK$30,000（約¥60,000）のメインイベントには既に1,200名を超えるエントリーが確認されており、主催者は賞金プールの大幅膨張を見込む。昨年の秋季大会で優勝した鈴木大輔選手が連覇を狙い出場表明するほか、APT帰りの田中雅也選手の参加も発表された。会場となる梅田ポーカーアリーナは特設VIPラウンジを新設、国内外からのスペクテーターにも対応する体制を整えている。注目のハイスタークスサテライトは4月4日に先行開催される。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 JOPT公式 | 2026-04-02</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>JOPT Spring 2026 サテライト速報——東京予選で85名が参加、本戦チケット獲得者20名確定</h3>
+            <p>
+              4月2日（木）、東京・渋谷区にある<strong>ポーカーハウスTOKYO</strong>を会場として、JOPT（Japan Open Poker Tour）Spring 2026 大阪本戦に向けた公式サテライトトーナメントが開催された。参加費¥11,000のサテライトには計<strong>85名</strong>が参加し、総バイイン額は¥935,000。上位20名に本戦メインイベント参加チケット（バリュー¥38,500相当）が付与されるフォーマットで行われた。<br>
+              今大会の注目は、昨年JOPT Autumn優勝者の<strong>佐藤慎平</strong>（28・東京）が序盤から積極的なオープンレイズ戦略でスタックを積み上げ、チップトップでサテライルをフィニッシュしたこと。また地方からのオンラインサテライト経由参加者も増加しており、全国規模の盛り上がりが見られる。本戦は4月12〜13日、大阪・アクトスポーカーで開催予定。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>JOPT Official</span>　2026-04-02</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-          <!-- ARTICLE 2 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1541278107931-e006523892df?w=600&h=400&fit=crop" alt="ポーカー戦略分析 - GTO理論">
+        <!-- Article 2 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1541278107931-e006523892df?w=600&h=400&fit=crop" alt="戦略分析 ポーカーカード">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-strategy">STRATEGY</span>
+              <span class="tag-pill tag-analysis">ANALYSIS</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-strategy">STRATEGY</span>
-                <span class="section-badge badge-analysis">ANALYSIS</span>
-              </div>
-              <h2 class="card-title">GTO vs エクスプロイト：日本人プロが語る「2026年のトーナメントポーカーで勝つためのバランス論」</h2>
-              <p class="card-excerpt">ポーカーAIの急速な進化によりGTO（ゲーム理論的最適）戦略が広く普及した現代において、トーナメントシーンで実際に勝ち続けるためのアプローチはどうあるべきか。日本人プロプレイヤーとして国内外の大会で活躍する中村健太選手が、自身の経験をもとに詳細な戦略論を展開する。中村選手は「純粋なGTO戦略はオンラインの高レートでは有効だが、ライブトーナメントでは相手の弱点を見抜き積極的にエクスプロイトする能力の方が圧倒的に重要」と主張。特にバブル前後のICM圧力下でのベットサイジング調整、3-betポットでのCベット頻度最適化、ショートスタック相手のオールイン判断基準について、具体的なハンド事例を用いて解説している。PokerJapanアカデミーとの共同制作記事。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 PokerJapan Academy | 2026-04-01</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>【戦略分析】GTO vs エクスプロイタティブ——田中雄一の準優勝から学ぶ「場面別アダプテーション」の極意</h3>
+            <p>
+              Triton Poker Jeju 2026準優勝を飾った田中雄一のプレースタイルを解析すると、近年のポーカー界で議論される<strong>「GTOソルバーの呪縛」</strong>からの脱却という重要なテーマが浮かび上がる。田中は試合前のインタビューで「GTOは地図、エクスプロイトはナビ」という独自の哲学を語っており、Tritonのような超高額ゲームでは相手のテンデンシーを素早く見抜き、偏りを利用することが最大の武器になるという。実際、彼がDay2でAlex Foxenを下した際のターンバレルは、Foxenのフォールドエクイティを正確に計算したエクスプロイタティブなブラフであったことが、後の分析で明らかになっている。本稿では、AI解析ツール<strong>GTO+</strong>と<strong>Solver Sage</strong>を用いた具体的なハンド検証を通じ、トーナメント終盤における「どこまでGTOから逸脱すべきか」という問いに答える。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>Poker Japan Daily 編集部</span>　2026-04-03</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-          <!-- ARTICLE 3 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&h=400&fit=crop" alt="カジノチップ - Triton Poker Series">
+        <!-- Article 3 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&h=400&fit=crop" alt="P1 GRANDPRIX カジノチップ">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-result">RESULT</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-triton">TRITON</span>
-                <span class="section-badge badge-player">PLAYER</span>
-              </div>
-              <h2 class="card-title">Triton Poker London 2026ライン-アップ発表：日本人招待選手に松岡航平が選出、国内最大の話題に</h2>
-              <p class="card-excerpt">世界最高峰のハイローラーポーカーシリーズとして知られるTriton Poker Seriesが5月20日からロンドンで開催予定であることは既報の通りだが、今回の招待選手リストに日本人として唯一、松岡航平選手（28歳）が選出されたことが明らかになった。Triton Pokerへの日本人招待は前回のシリーズ以来となり、国内ポーカーコミュニティで大きな話題となっている。松岡選手は昨年のWPT Japan Winter Classicで優勝を収め、GGPoker主催のオンラインシリーズでも複数回のファイナルテーブルを記録しており、Triton側のスカウト担当者の目に留まったとみられる。最低バイインが$50,000（約750万円）となるショートデッキNLHEイベントへの出場が確認されており、松岡選手本人もSNSで「夢のステージで精一杯戦います」とコメントしている。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 Triton Poker公式 | 2026-03-31</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>P1 GRANDPRIX Vol.22 最終結果——松本健太が逆転優勝、優勝賞金¥820,000を手にする</h3>
+            <p>
+              3月29〜30日にかけて東京・新宿区のポーカースタジアムで開催された<strong>P1 GRANDPRIX Vol.22</strong>は、2日間で延べ<strong>312名</strong>がエントリーし、総賞金プール<strong>¥7,488,000</strong>を誇る大型国内大会となった。バイインは¥24,000で、ポーカースタジアム独自の「エクストラボーナス」ルールが導入されている。<br>
+              最終日・ファイナルテーブルでは大阪から遠征参加した<strong>松本健太</strong>（25）が4人残ったところからショートスタックを巧みに活かして逆転劇を演じ、最終的に大手国内プロの<strong>鈴木翔</strong>をヘッズアップで下して優勝。「短いスタックこそが私のホームポジション」と語った松本のICM計算に基づくオールイン戦略が話題となっている。2位の鈴木には¥495,000、3位の<strong>山田菜々子</strong>には¥310,000が贈られた。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>P1 GRANDPRIX Official / PokerNews Japan</span>　2026-03-30</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-          <!-- ARTICLE 4 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1609743522653-52354461eb27?w=600&h=400&fit=crop" alt="カードゲーム - ポーカープレイヤーインタビュー">
+        <!-- Article 4 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1609743522653-52354461eb27?w=600&h=400&fit=crop" alt="プレイヤーインタビュー カードゲーム">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-player">PLAYER</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-player">PLAYER</span>
-              </div>
-              <h2 class="card-title">【独占インタビュー】佐々木瑠奈「女性プレイヤーとしての壁を超えて――APT Macauで見えた世界との差と可能性」</h2>
-              <p class="card-excerpt">APT Macau 2026メインイベントで15位入賞（HK$72,000獲得）という好成績を残した佐々木瑠奈選手（24歳）に、Poker Japan Daily独占インタビューを実施した。大学在学中にポーカーを始め、わずか2年でプロ転向を果たした佐々木選手は、アジア圏での女性プレイヤーのポジションについて率直な見解を語った。「テーブルに座ると最初は軽く見られることがあるが、そのイメージギャップをアドバンテージとして利用することを学んだ」と語る佐々木選手。特にバリューベットの精度とブラフキャッチの判断において、彼女が培ってきた読みの深さが際立っていた。今後はWSOP Ladies Event参戦とEPT Barcelona 2026への挑戦を計画しているとのこと。日本女性ポーカープレイヤーのロールモデルとして、国内の注目が集まっている。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 Poker Japan Daily | 2026-04-02</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>【独占インタビュー】元会社員からポーカープロへ——中村彩花「28歳でキャリアチェンジした理由と海外戦略」</h3>
+            <p>
+              元大手IT企業のシステムエンジニアから転身し、わずか3年でライブトーナメント獲得賞金$380,000を超える新鋭プロとなった<strong>中村彩花</strong>（31）。2025年にはAPT Manila ハイローラーで4位に入賞し、一気に国際舞台での名を高めた。本インタビューでは、なぜ安定した収入を捨ててポーカープロの道を選んだのか、その決断の背景を深く掘り下げる。「最初は副業として週2〜3日プレイしていたが、年間収支がサラリーを超えた瞬間に転職を決意した。ポーカーはデータとメンタルの掛け合わせ——エンジニア思考との親和性が高い」と語る彩花のポーカー哲学と、2026年の目標（WSOP Main Event入賞）について詳しく語ってもらった。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>Poker Japan Daily 編集部</span>　2026-04-03</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-          <!-- ARTICLE 5 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=400&fit=crop" alt="ポーカー風景 - P1 GRANDPRIX TOKYO">
+        <!-- Article 5 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=400&fit=crop" alt="WPT Japan ポーカー風景">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-analysis">ANALYSIS</span>
+              <span class="tag-pill tag-world">WORLD</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-result">RESULT</span>
-                <span class="section-badge badge-jopt">P1 GP</span>
-              </div>
-              <h2 class="card-title">P1 GRANDPRIX TOKYO March Edition 結果速報：総勢842名参加、高橋慶太が逆転劇で頂点へ</h2>
-              <p class="card-excerpt">3月29日から31日にかけて東京・渋谷で開催されたP1 GRANDPRIX TOKYO March Editionの最終結果が発表された。バイイン¥50,000のメインイベントには842名がエントリー（リエントリー込み）し、賞金プールは¥36,540,000を突破。上位84名がマネー圏となり、ファイナルテーブルは緊迫した戦いが繰り広げられた。高橋慶太選手（32歳）はファイナルテーブル進出時点では最短スタックだったが、3-betポットでのコールインとブラフを巧みに組み合わせたプレイで逆転を続け、最終的に全チップを集めてチャンピオンに輝いた。優勝賞金は¥8,200,000。「スタック不利の状況でも常に冷静に相手の行動パターンを分析し続けた」と高橋選手はコメント。次回P1 GRANDPRIX TOKYOは4月12日から開催予定。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 P1 GRANDPRIX公式 | 2026-03-31</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>2026年上半期 国際ポーカーシーン総括——日本人プレイヤーの「世界進出」が加速、獲得総賞金は過去最高ペース</h3>
+            <p>
+              2026年も第1四半期を終え、日本人プレイヤーの国際舞台での活躍が過去最高ペースで推移していることが、Poker Japan Daily編集部の独自集計により明らかになった。1月〜3月の3ヶ月間で、Triton・EPT・APT・WSOPサーキット等の主要大会において日本人選手が獲得した賞金の合計は<strong>$5,120,000</strong>を超え、前年同期比で<strong>43%増</strong>となっている。特にTritonシリーズでの田中雄一の活躍と、EPT Monte-Carloでの<strong>伊藤拓哉</strong>の6位入賞（$248,000）が数字を押し上げた。背景には、国内での競技レベル向上と、海外メジャー大会への参加費を支援する<strong>ポーカースポンサーシップ制度</strong>の普及があると分析される。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>Poker Japan Daily 独自集計</span>　2026-04-03</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-          <!-- ARTICLE 6 -->
-          <div class="article-card">
-            <div class="card-img-wrap" style="background:#1e293b;">
-              <img src="https://images.unsplash.com/photo-1518893063132-36e46dbe2428?w=600&h=400&fit=crop" alt="カジノ雰囲気 - WSOP 2026準備">
+        <!-- Article 6 -->
+        <article class="article-card">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1518893063132-36e46dbe2428?w=600&h=400&fit=crop" alt="カジノ業界トレンド">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="tag-pill tag-analysis">ANALYSIS</span>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="section-badge badge-wsop">WSOP</span>
-                <span class="section-badge badge-analysis">ANALYSIS</span>
-              </div>
-              <h2 class="card-title">WSOP 2026完全ガイド：日本人プレイヤーが知っておくべきスケジュール・エントリー情報・ビザ手続きの最新情報</h2>
-              <p class="card-excerpt">今年のWSOP（World Series of Poker）2026は5月28日から7月12日にかけてラスベガス・パリスカジノ&amp;リゾートにて開催される。世界最大のポーカーイベントへの参戦を検討している日本人プレイヤー向けに、Poker Japan Dailyが総まとめの完全ガイドをお届けする。今年の注目点は、新たに設けられた「ミックスゲームチャンピオンシップ」イベント（バイイン$10,000）と、日本からのオンライン事前登録が可能なサテライトルートの拡充だ。昨年のWSOP参加日本人は延べ約300名で、過去最多を更新したが、今年はさらなる増加が見込まれる。記事では、最もエントリーしやすいイベント（バイイン$500〜$1,500）のリスト、宿泊施設の比較、現地での銀行・資金移動の注意点、そして米国B-2ビザ取得の最新手続きについて詳しく解説している。</p>
-              <div class="card-footer">
-                <span class="card-source">📰 WSOP.com・Poker Japan Daily | 2026-04-01</span>
-                <a href="#" class="read-more">続きを読む →</a>
-              </div>
+            <h3>【業界レポート】日本国内ポーカールームの出店ラッシュ——2026年Q1新規オープン10店舗超、競争激化の実態</h3>
+            <p>
+              2026年第1四半期（1〜3月）の3ヶ月間で、東京・大阪・名古屋・福岡を中心に<strong>14店舗</strong>の新規アミューズメントポーカールームがオープンした。前年同期の7店舗から倍増となる出店数は業界全体の活性化を示す一方、スタッフ不足・運営品質のばらつきという新たな課題も浮上している。特に東京都内では、2026年4月末に施行予定のアミューズメントポーカー新ガイドライン（後述）への対応をめぐり、設備投資に踏み切るか様子見するかで経営方針が割れている店舗も多い。業界団体・JAPA（日本アミューズメントポーカー協会）の広報担当者は「適切な競争環境の整備のため、業界標準の確立が急務」と述べた。
+            </p>
+            <div class="card-footer">
+              <div class="card-source">出典: <span>JAPA プレスリリース / Poker Japan Daily</span>　2026-04-01</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
+        </article>
 
-        </div>
+      </div>
+    </div>
+
+    <!-- TOURNAMENTS SECTION -->
+    <div id="tournaments" class="section-block">
+      <div class="section-header">
+        <span class="section-badge badge-tournaments">🏆 TOURNAMENTS</span>
+        <h2>トーナメント結果</h2>
+        <div class="section-divider"></div>
       </div>
 
-      <div class="section-divider"></div>
-
-      <!-- TOURNAMENTS SECTION -->
-      <div class="articles-list" id="tournaments">
-        <div class="section-header">
-          <div>
-            <div class="section-title">トーナメント結果</div>
-            <div class="section-title-en">TOURNAMENT RESULTS</div>
+      <!-- Tournament 1 -->
+      <div class="list-card">
+        <div class="list-card-inner">
+          <div class="list-card-img">
+            <img src="https://images.unsplash.com/photo-1596838132731-3301c3ef1986?w=600&h=400&fit=crop" alt="P1 GRANDPRIX Vol.22 カジノテーブル">
           </div>
-          <div class="section-line"></div>
-          <span class="section-badge badge-result">RESULTS</span>
-        </div>
-
-        <!-- Tournament Article 1 -->
-        <div class="article-list-card">
-          <div class="list-card-img" style="background:#1e293b;">
-            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="イベント会場 - WPT Japan Spring 2026予告">
-          </div>
-          <div class="list-card-body">
-            <div class="card-meta" style="margin-bottom:8px;">
-              <span class="section-badge badge-result">RESULT</span>
-              <span class="section-badge badge-world">WPT</span>
+          <div class="list-card-content">
+            <div>
+              <div class="card-meta" style="margin-bottom:8px;">
+                <span class="tag-pill tag-result">RESULT</span>
+                <span class="tag-pill tag-jopt">P1GP</span>
+              </div>
+              <h3>P1 GRANDPRIX Vol.22 完全リザルト——ファイナルテーブル8名の成績と全入賞者賞金一覧</h3>
+              <p>3月29〜30日開催のP1 GRANDPRIX Vol.22は延べ312名参加、総賞金プール¥7,488,000。ファイナルテーブルの8名は全国各地から集まった強豪揃い。Day2は大阪代表・松本健太が圧倒的なプレッシャープレイで制した。</p>
+              <div class="result-box">
+                <div class="result-title">🏆 ファイナルテーブル結果</div>
+                <div class="result-row">
+                  <span class="rank">1位</span>
+                  <span class="player-name">松本健太（大阪）</span>
+                  <span class="prize">¥820,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">2位</span>
+                  <span class="player-name">鈴木翔（東京）</span>
+                  <span class="prize">¥495,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">3位</span>
+                  <span class="player-name">山田菜々子（神奈川）</span>
+                  <span class="prize">¥310,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">4位</span>
+                  <span class="player-name">高橋大輝（愛知）</span>
+                  <span class="prize">¥210,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">5位</span>
+                  <span class="player-name">木村誠（福岡）</span>
+                  <span class="prize">¥155,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">6位</span>
+                  <span class="player-name">小川里奈（東京）</span>
+                  <span class="prize">¥120,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">7位</span>
+                  <span class="player-name">渡辺隆史（大阪）</span>
+                  <span class="prize">¥92,000</span>
+                </div>
+                <div class="result-row">
+                  <span class="rank">8位</span>
+                  <span class="player-name">石田光（東京）</span>
+                  <span class="prize">¥72,000</span>
+                </div>
+              </div>
             </div>
-            <h2 class="list-card-title">WPT Japan Spring 2026：横浜開催決定、賞金プール目標2億円超え――前回覇者・森田誠一が連覇宣言</h2>
-            <p class="list-card-excerpt">World Poker Tour（WPT）の日本ラウンド「WPT Japan Spring 2026」が5月3日から5月6日にかけて横浜みなとみらいの特設会場で開催されることが正式に発表された。バイインは¥110,000（税込）で、主催者サイドでは目標参加者数2,000名、賞金プール2億円超えを掲げている。前回2025年秋のWPT Japan Fallを制した森田誠一選手（41歳）が「地元・横浜での連覇を目指す」と力強いコメントを発表し、早くも注目を集めている。今大会は従来の1日目A/Bに加え、1日目Cが新たに設けられ、遠方からの参加者にも柔軟な日程が提供される。また、VIPパッケージ（¥220,000）にはプレミアムシーティング・食事サービス・WPTグッズが含まれ、観戦ブースも大幅拡張される予定だ。サテライトはオンライン・オフライン両方で既に受付開始されており、コース料金の格安パスも用意されている。WPTグローバルランキングのポイントが付与されることから、国際ランキングを意識するプレイヤーにとっても見逃せないイベントとなっている。</p>
             <div class="list-card-footer">
-              <span class="card-source">📰 WPT Japan公式 | 2026-04-02</span>
-              <a href="#" class="read-more">続きを読む →</a>
+              <div class="card-source">出典: <span>P1 GRANDPRIX Official</span>　2026-03-30</div>
+              <a href="#" class="read-more-link">続きを読む →</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Tournament Article 2 -->
-        <div class="article-list-card">
-          <div class="list-card-img" style="background:#1e293b;">
-            <img src="https://images.unsplash.com/photo-1596838132731-3301c3ef1986?w=600&h=400&fit=crop" alt="カジノテーブル - APT Manila 2026">
+      <!-- Tournament 2 -->
+      <div class="list-card">
+        <div class="list-card-inner">
+          <div class="list-card-img">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="JOPT Spring 2026 イベント会場">
           </div>
-          <div class="list-card-body">
-            <div class="card-meta" style="margin-bottom:8px;">
-              <span class="section-badge badge-result">RESULT</span>
-              <span class="section-badge badge-world">APT</span>
-            </div>
-            <h2 class="list-card-title">APT Manila 2026 詳細発表：フィリピン開催の最大ポーカーイベント、日本人勢の集団参戦
+          <div class="list-card-content">
+            <div>
+              <div class="card-meta" style="margin-bottom:8px;">
+                <span class="tag-pill tag-jopt">JOPT</span>
+                <span class="tag-pill tag-result">UPCOMING</span>
+              </div>
+              <h3>JOPT Spring 2026 大阪本戦プレビュー——注目プレイヤー5名と今大会の見どころを徹底分析</h3>
+              <p>4月12〜13日に
