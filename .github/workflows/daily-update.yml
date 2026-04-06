@@ -1,37 +1,37 @@
 name: Poker Japan Daily Update
 
 on:
-  schedule:
-    - cron: '0 23 * * *'  # 毎日 8:00 AM JST (= 23:00 UTC)
-  workflow_dispatch:       # 手動実行ボタン
+  # schedule:
+    #   - cron: '0 23 * * *'  # 毎日 8:00 AM JST (= 23:00 UTC)
+      workflow_dispatch:      # 手動実行ボタン
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+      jobs:
+        update:
+            runs-on: ubuntu-latest
+                permissions:
+                      contents: write
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+                          steps:
+                                - name: Checkout repository
+                                        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+                                              - name: Set up Python
+                                                      uses: actions/setup-python@v5
+                                                              with:
+                                                                        python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install anthropic
+                                                                              - name: Install dependencies
+                                                                                      run: pip install anthropic
 
-      - name: Generate daily poker content
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python generate_daily.py
-
-      - name: Commit and push index.html
-        run: |
-          git config --local user.email "bot@pokerjapandaily.com"
-          git config --local user.name "Poker Japan Daily Bot"
-          git add index.html
-          git diff --staged --quiet || git commit -m "Update: $(TZ=Asia/Tokyo date '+%Y年%m月%d日')"
-          git push
+                                                                                            - name: Generate daily poker content
+                                                                                                    env:
+                                                                                                              ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+                                                                                                                      run: python generate_daily.py
+                                                                                                                      
+                                                                                                                            - name: Commit and push index.html
+                                                                                                                                    run: |
+                                                                                                                                              git config --local user.email "bot@pokerjapandaily.com"
+                                                                                                                                                        git config --local user.name "Poker Japan Daily Bot"
+                                                                                                                                                                  git add index.html
+                                                                                                                                                                            git diff --staged --quiet || git commit -m "Update: $(TZ=Asia/Tokyo date '+%Y年%m月%d日')"
+                                                                                                                                                                                      git push
